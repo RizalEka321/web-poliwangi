@@ -1,25 +1,27 @@
 :root {
   /* Primary Colors */
-  --blue-dark: #003456;
-  --blue-medium-dark: #00456a;
-  --blue-medium: #7392a6;
-  --blue-light: #b7c9d5;
-  --blue-lighter: #d0dee7;
+  --blue-dark: #004878;
+  --blue-medium-dark: #003c64;
+  --blue-medium: #aac2d2;
+  --blue-light: #ccdae4;
+  --blue-lighter: #ccdae4;
 
   /* Accent Colors */
-  --accent-blue: #0069f1;
-  --accent-orange: #f2a25c;
+  --accent-blue: #0073e6;
+  --accent-orange: #f4a261;
 
   /* Background & Text */
-  --bg-white: #f7f7f7;
-  --bg-grey: #dddddd;
-  --text-black: #1c1c1c;
+  --bg-white: #f5f5f5;
+  --bg-grey: #e0e0e0;
+  --text-black: #1b1b1b;
 
   /* Button Colors */
-  --button-yellow: #f8c44e;
-  --button-red: #e33b44;
+  --button-yellow: #ffd166;
+  --button-red: #e63946;
 
   /* Font */
-  --font-family: "Merriweather", serif;
+  --font-merri: "Merriweather", serif;
+  --font-lora: "Lora", serif;
   --font-albert: "Albert Sans", sans-serif;
+  --font-playfair: "Playfair Display", serif;
 }
