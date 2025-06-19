@@ -1,18 +1,20 @@
 <template>
-  <footer class="bg-[#00487C] text-white">
-    <div class="max-w-7xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-5 gap-8 text-sm">
+  <footer class="bg-[var(--blue-dark)] text-white font-[var(--font-albert)]">
+    <div class="max-w-screen-xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-6 gap-6 text-sm">
       <!-- Logo dan Alamat -->
-      <div>
-        <img src="/src/assets/icon/logo.png" alt="Logo Poliwangi" class="h-16 mb-4" />
-        <p>POLITEKNIK NEGERI BANYUWANGI</p>
-        <p class="mt-2">Jalan Raya Jember KM 13 Banyuwangi 68461,</p>
-        <p>Jawa Timur – Indonesia</p>
+      <div class="col-span-2 flex items-start space-x-2">
+        <img src="/src/assets/icon/logo.png" alt="Logo Poliwangi" class="h-13" />
+        <div>
+          <h1 class="text-xs" style="font-family: var(--font-playfair)">POLITEKNIK NEGERI</h1>
+          <h2 class="text-lg -mt-1" style="font-family: var(--font-playfair)">BANYUWANGI</h2>
+          <p class="mt-3 leading-5">Jalan Raya Jember KM 13<br />Banyuwangi 68461,<br />Jawa Timur – Indonesia</p>
+        </div>
       </div>
 
       <!-- Profil -->
       <div>
-        <h3 class="font-semibold mb-2">PROFIL</h3>
-        <ul class="space-y-1">
+        <h3 class="font-semibold mb-3 uppercase">PROFIL</h3>
+        <ul class="space-y-1 leading-6">
           <li>Sejarah Poliwangi</li>
           <li>Visi & Misi</li>
           <li>Senat</li>
@@ -24,20 +26,21 @@
 
       <!-- Layanan Publik -->
       <div>
-        <h3 class="font-semibold mb-2">LAYANAN PUBLIK</h3>
-        <ul class="space-y-1">
+        <h3 class="font-semibold mb-3 uppercase">LAYANAN PUBLIK</h3>
+        <ul class="space-y-1 leading-6">
           <li>Peraturan Akademik</li>
           <li>PPID Poliwangi</li>
           <li>Jalur Masuk</li>
           <li>Pengaduan Poliwangi</li>
-          <li>Survey Kepuasan Masyarakat</li>
+          <li>Survey Kepuasan 
+            <br>Masyarakat</li>
         </ul>
       </div>
 
       <!-- Jurusan -->
       <div>
-        <h3 class="font-semibold mb-2">JURUSAN</h3>
-        <ul class="space-y-1">
+        <h3 class="font-semibold mb-3 uppercase">JURUSAN</h3>
+        <ul class="space-y-1 leading-6">
           <li>Bisnis dan Informatika</li>
           <li>Teknik Sipil</li>
           <li>Teknik Mesin</li>
@@ -48,36 +51,39 @@
 
       <!-- Media Sosial -->
       <div>
-        <h3 class="font-semibold mb-2">MEDIA SOSIAL</h3>
-        <div class="flex items-center space-x-3 mb-4 text-2xl">
+        <h3 class="font-semibold mb-3 uppercase">MEDIA SOSIAL</h3>
+        <div class="flex items-center space-x-4 text-xl mb-4">
           <i class="fab fa-facebook"></i>
           <i class="fab fa-instagram"></i>
           <i class="fab fa-youtube"></i>
           <i class="fab fa-tiktok"></i>
         </div>
-        <p class="flex items-center space-x-2">
-          <i class="fas fa-envelope"></i>
-          <span>poliwangi@poliwangi.ac.id<br />humas@poliwangi.ac.id</span>
-        </p>
-        <p class="flex items-center space-x-2 mt-2">
-          <i class="fas fa-phone"></i>
+        <div class="flex items-start mb-2">
+          <i class="fas fa-envelope mt-1 mr-2"></i>
+          <div class="leading-5">
+            <p>poliwangi@poliwangi.ac.id</p>
+            <p>humas@poliwangi.ac.id</p>
+          </div>
+        </div>
+        <div class="flex items-center">
+          <i class="fas fa-phone mr-2"></i>
           <span>+62 (0333) 636780</span>
-        </p>
+        </div>
       </div>
     </div>
 
     <!-- Copyright -->
-    <div class="bg-yellow-300 text-center text-black text-sm py-3">
+    <div class="text-left text-[var(--text-black)] text-sm py-3 px-6" style="background-color: var(--button-yellow); font-family: var(--font-albert)">
       Copyright © 2024 POLITEKNIK NEGERI BANYUWANGI
     </div>
   </footer>
 </template>
 
 <script setup>
-// Tidak ada logika JS untuk saat ini
+// Tidak perlu logic JS untuk saat ini
 </script>
 
 <style scoped>
-/* Tambahkan font awesome jika belum */
+/* Font Awesome (bisa juga dipindahkan global ke index.html atau layout utama) */
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css');
 </style>
