@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar bg-blue-dark text-white px-10 py-3 flex justify-between items-center shadow-lg">
+  <nav class="navbar bg-[var(--blue-dark)] text-white px-10 py-3 flex justify-between items-center shadow-lg sticky top-0 z-50">
     <div class="flex items-center space-x-2 cursor-pointer">
       <router-link to="/" class="flex items-center space-x-2">
         <img src="/src/assets/icon/logo.png" alt="Logo" class="w-12 h-12 object-contain" />
