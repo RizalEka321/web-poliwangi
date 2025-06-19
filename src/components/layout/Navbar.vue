@@ -1,5 +1,5 @@
 <template>
-  <nav class="bg-blue-600 text-white p-4 flex justify-between items-center">
+  <nav class="navbar text-white p-4 flex justify-between items-center">
     <div class="font-bold text-xl">
       <router-link to="/">Poliwangi</router-link>
     </div>
