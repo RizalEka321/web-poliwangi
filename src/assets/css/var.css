@@ -1,0 +1,25 @@
+:root {
+  /* Primary Colors */
+  --blue-dark: #003456;
+  --blue-medium-dark: #00456a;
+  --blue-medium: #7392a6;
+  --blue-light: #b7c9d5;
+  --blue-lighter: #d0dee7;
+
+  /* Accent Colors */
+  --accent-blue: #0069f1;
+  --accent-orange: #f2a25c;
+
+  /* Background & Text */
+  --bg-white: #f7f7f7;
+  --bg-grey: #dddddd;
+  --text-black: #1c1c1c;
+
+  /* Button Colors */
+  --button-yellow: #f8c44e;
+  --button-red: #e33b44;
+
+  /* Font */
+  --font-family: "Merriweather", serif;
+  --font-albert: "Albert Sans", sans-serif;
+}
