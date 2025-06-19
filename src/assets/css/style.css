@@ -5,4 +5,6 @@ body {
 
 .navbar {
   background-color: var(--blue-dark);
+  font-family: var(--font-albert);
+  font-weight: 400;
 }
