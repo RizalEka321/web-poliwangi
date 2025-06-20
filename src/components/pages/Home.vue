@@ -171,10 +171,27 @@
       <h2 class="text-3xl md:text-4xl font-black text-[var(--text-black)]" style="font-family: var(--font-lora)">International Partners</h2>
       <div class="w-15 h-1 bg-[var(--accent-yellow)] rounded-full"></div>
     </div>
+    <div class="flex flex-wrap justify-center gap-6 mb-8">
+      <img
+        v-for="(img, index) in topPartners"
+        :key="'top-' + index"
+        :src="img"
+        class="h-[40px] md:h-[50px] object-contain"
+      />
+    </div>
+
+    <div class="flex flex-wrap justify-center gap-6">
+      <img
+        v-for="(img, index) in bottomPartners"
+        :key="'bottom-' + index"
+        :src="img"
+        class="h-[60px] md:h-[80px] object-contain"
+      />
+    </div>
   </section>
 
   <section class="faq max-w-4xl mx-auto py-20 px-4">
-    <h2 class="text-3xl md:text-4xl font-black text-center mb-4" style="font-family: var(--font-lora)">Frequently Asked Question</h2>
+    <h2 class="text-3xl md:text-4xl font-black text-center text-[var(--text-black)] mb-4" style="font-family: var(--font-lora)">Frequently Asked Question</h2>
     <div class="w-16 h-1 bg-[var(--accent-yellow)] mx-auto mb-6 rounded-full"></div>
     <p class="text-center text-sm text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed font-[var(--font-albert)]">
       Temukan jawaban atas berbagai pertanyaan seputar program studi, proses pendaftaran, biaya kuliah, fasilitas kampus, dan informasi penting lainnya. Kami telah merangkum jawaban secara ringkas dan jelas untuk membantu Anda mendapatkan
@@ -380,6 +397,19 @@ const serviceList = [
   },
 ];
 
+//Partner
+import taiwan from '@/assets/icon/taiwan.png'
+import china from '@/assets/icon/china.png'
+import kosen from '@/assets/icon/kosen.png'
+import atlim from '@/assets/icon/atlim.png'
+import pusan from '@/assets/icon/pusan.png'
+import unv1 from '@/assets/icon/unv1.png'
+import unv from '@/assets/icon/unv.png'
+import yangzou from '@/assets/icon/yangzou.png'
+
+const topPartners = [taiwan, china, kosen, atlim]
+const bottomPartners = [pusan, unv, yangzou, unv1]
+
 // Faq
 const activeIndex = ref(null);
 
@@ -395,19 +425,19 @@ const faqs = [
   },
   {
     question: "Bagaimana cara mendaftar di Poliwangi?",
-    answer: "Pendaftaran dapat dilakukan secara online melalui situs resmi Poliwangi dengan mengikuti tahapan dan persyaratan yang ditentukan.",
+    answer: "Pendaftaran dilakukan secara online melalui situs resmi Poliwangi atau portal penerimaan mahasiswa baru seperti SNMPN dan SBMPN. Pastikan Anda memenuhi syarat pendaftaran dan mengikuti jadwal yang ditentukan.",
   },
   {
     question: "Apakah Poliwangi menerima jalur prestasi?",
-    answer: "Ya, Poliwangi menerima calon mahasiswa melalui jalur prestasi akademik dan non-akademik sesuai ketentuan yang berlaku.",
+    answer: "Ya, Poliwangi menerima mahasiswa melalui jalur prestasi seperti SNMPN (Seleksi Nasional Masuk Politeknik Negeri) dan jalur mandiri yang mempertimbangkan nilai rapor dan prestasi lainnya.",
   },
   {
     question: "Bagaimana sistem perkuliahan di Poliwangi?",
-    answer: "Perkuliahan di Poliwangi menggabungkan teori dan praktik, dengan dukungan fasilitas laboratorium dan dosen berpengalaman.",
+    answer: "Sistem perkuliahan di Poliwangi berbasis praktik dan teori, dengan proporsi lebih besar pada praktik di laboratorium, bengkel, atau lapangan. Poliwangi juga sering bekerja sama dengan industri untuk memberikan pengalaman langsung kepada mahasiswa.",
   },
   {
     question: "Apakah Poliwangi memiliki organisasi mahasiswa atau komunitas?",
-    answer: "Poliwangi memiliki berbagai organisasi dan komunitas mahasiswa yang aktif dalam kegiatan akademik maupun non-akademik.",
+    answer: "Tentu saja. Poliwangi memiliki berbagai organisasi mahasiswa, seperti BEM (Badan Eksekutif Mahasiswa), UKM (Unit Kegiatan Mahasiswa), dan komunitas sesuai minat dan bakat mahasiswa. Organisasi ini membantu mahasiswa mengembangkan keterampilan non-akademik.",
   },
 ];
 </script>
