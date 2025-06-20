@@ -10,6 +10,7 @@
       </div>
     </div>
   </section>
+
   <section class="profile-home px-4 py-16 md:px-20 flex flex-col md:flex-row items-center gap-10">
     <div class="flex-1 text-left" style="font-family: var(--font-albert)">
       <h2 class="text-2xl md:text-2xl font-bold mb-4 text-[var(--text-black)]" style="font-family: var(--font-playfair)">POLITEKNIK NEGERI BANYUWANGI</h2>
@@ -37,6 +38,7 @@
       </div>
     </div>
   </section>
+
   <section class="info-registration py-16">
     <div class="flex items-center gap-4 px-4 md:px-20 py-3 mb-5 bg-[var(--accent-yellow)] text-white">
       <img src="/src/assets/icon/danger.svg" alt="icon-danger" class="w-10 h-10 invert" />
@@ -52,27 +54,28 @@
             <p class="text-xs mb-3 text-justify">{{ item.description }}</p>
             <hr />
             <div class="flex justify-between items-center text-xs mt-2">
-              <p>21 Maret 2002</p>
-              <router-link :to="item.link" class="font-semibold hover:text-yellow-400">Read More</router-link>
+              <p><i class="fa-solid fa-calendar-days me-2"></i>21 Maret 2002</p>
+              <router-link :to="item.link" class="font-semibold hover:text-yellow-400">Read More<i class="fa-solid fa-arrow-right ms-2"></i></router-link>
             </div>
           </div>
         </div>
       </div>
     </div>
     <div class="flex justify-center items-center mt-10 space-x-2">
-      <button class="w-10 h-10 rounded bg-[#E0E0E0] shadow font-bold hover:bg-[var(--accent-blue)] hover:text-white" @click="prevPage" :disabled="currentPageIndex === 0">‹</button>
+      <button class="w-10 h-10 rounded-xl bg-[#E0E0E0] shadow font-bold hover:bg-[var(--accent-blue)] hover:text-white" @click="prevPage" :disabled="currentPageIndex === 0"><i class="fa-solid fa-chevron-left"></i></button>
       <button
         v-for="page in totalPages"
         :key="page"
-        class="w-10 h-10 rounded shadow font-bold"
+        class="w-10 h-10 rounded-xl shadow font-bold"
         :class="currentPageIndex === page - 1 ? 'bg-[var(--accent-blue)] text-white' : 'bg-[#E0E0E0] text-[var(--text-black)] hover:bg-[var(--accent-blue)] hover:text-white'"
         @click="goToPage(page - 1)"
       >
         {{ page }}
       </button>
-      <button class="w-10 h-10 rounded bg-[#E0E0E0] shadow font-bold hover:bg-[var(--accent-blue)] hover:text-white" @click="nextPage" :disabled="currentPageIndex === totalPages - 1">›</button>
+      <button class="w-10 h-10 rounded-xl bg-[#E0E0E0] shadow font-bold hover:bg-[var(--accent-blue)] hover:text-white" @click="nextPage" :disabled="currentPageIndex === totalPages - 1"><i class="fa-solid fa-chevron-right"></i></button>
     </div>
   </section>
+
   <section class="news">
     <div class="flex flex-col items-center justify-center gap-4 px-4 md:px-20 py-3 mb-5">
       <h2 class="text-2xl md:text-2xl font-bold text-[var(--accent-yellow)]" style="font-family: var(--font-lora)"><span class="text-[var(--blue-dark)]">Berita Terkini</span> POLIWANGI</h2>
@@ -87,9 +90,9 @@
           <div class="py-3">
             <h3 class="text-xl font-bold text-[var(--text-black)] mb-2 text-justify hover:text-yellow-400">Sosialisasi Program Magang Industri Bagi Mahasiswa Poliwangi Sebelum Lulus ke Dunia Kerja</h3>
             <div class="flex items-center text-sm text-[var(--text-black)]">
-              <p>21 Maret 2002</p>
+              <p><i class="fa-solid fa-calendar-days me-2"></i>21 Maret 2002</p>
               <span class="mx-2">|</span>
-              <p>Berita</p>
+              <p><i class="fa-solid fa-tags me-2"></i>Berita</p>
             </div>
             <p class="text-[var(--text-black)] mb-4 text-justify">Ringkasan singkat dari berita utama yang sedang tampil di sini. Konten berita utama biasanya berisi highlight terkini dari Poliwangi.</p>
           </div>
@@ -103,15 +106,15 @@
           <div class="flex-1">
             <h4 class="font-bold text-[var(--text-black)] mb-1 text-justify leading-[1.3rem] hover:text-yellow-400">{{ item.title }}</h4>
             <div class="flex items-center text-sm text-[var(--text-black)]">
-              <p>{{ item.date }}</p>
+              <p><i class="fa-solid fa-calendar-days me-2"></i>{{ item.date }}</p>
               <span class="mx-2">|</span>
-              <p>Berita</p>
+              <p><i class="fa-solid fa-tags me-2"></i>Berita</p>
             </div>
             <p class="text-sm text-justify leading-[1.2rem]">{{ item.description }}</p>
           </div>
         </div>
         <div class="flex justify-end">
-          <router-link to="/berita" class="font-semibold hover:text-yellow-400">Berita Lainnya</router-link>
+          <router-link to="/berita" class="font-semibold hover:text-yellow-400">Berita Lainnya<i class="fa-solid fa-circle-right ms-2"></i></router-link>
         </div>
       </div>
     </div>
@@ -148,14 +151,52 @@
     <div class="absolute inset-0 bg-[var(--blue-dark)]/50"></div>
     <div class="absolute inset-0">
       <div class="flex items-center justify-center text-white z-10 px-4 md:px-20 py-15">
-        <h2 class="text-4xl md:text-4xl font-bold text-white" style="font-family: var(--font-lora)">Layanan Digital</h2>
+        <h2 class="text-4xl md:text-4xl font-black text-white" style="font-family: var(--font-lora)">Layanan Digital</h2>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 px-4 md:px-20">
         <div v-for="(item, index) in serviceList" :key="index" class="bg-white overflow-hidden rounded-lg cursor-pointer">
-          <div class="p-4 flex flex-col items-center">
-            <img :src="item.image" alt="" class="w-15 h-15 object-contain mb-3 invert-[10%] sepia-[30%] saturate-[500%] hue-rotate-[190deg] brightness-[90%] contrast-[100%]" />
-            <h3 class="font-semibold text-base text-[var(--blue-dark)] leading-[1.3rem] text-center hover:text-yellow-400">{{ item.title }}</h3>
+          <div class="p-4 flex flex-col items-center text-[var(--blue-dark)]">
+            <i :class="[item.icon, 'text-5xl', 'mb-3']"></i>
+            <h3 class="font-semibold text-base leading-[1.3rem] text-center hover:text-[var(--accent-yellow)]">
+              {{ item.title }}
+            </h3>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="partnert">
+    <div class="flex flex-col items-center justify-center gap-4 px-4 md:px-20 py-3 mb-5">
+      <h2 class="text-3xl md:text-4xl font-black text-[var(--text-black)]" style="font-family: var(--font-lora)">International Partners</h2>
+      <div class="w-15 h-1 bg-[var(--accent-yellow)] rounded-full"></div>
+    </div>
+  </section>
+
+  <section class="faq max-w-4xl mx-auto py-20 px-4">
+    <h2 class="text-3xl md:text-4xl font-black text-center mb-4" style="font-family: var(--font-lora)">Frequently Asked Question</h2>
+    <div class="w-16 h-1 bg-[var(--accent-yellow)] mx-auto mb-6 rounded-full"></div>
+    <p class="text-center text-sm text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed font-[var(--font-albert)]">
+      Temukan jawaban atas berbagai pertanyaan seputar program studi, proses pendaftaran, biaya kuliah, fasilitas kampus, dan informasi penting lainnya. Kami telah merangkum jawaban secara ringkas dan jelas untuk membantu Anda mendapatkan
+      informasi dengan mudah. Jika masih ada pertanyaan, jangan ragu untuk menghubungi kami!
+    </p>
+
+    <div class="space-y-4">
+      <div v-for="(faq, index) in faqs" :key="index" class="rounded-lg overflow-hidden shadow">
+        <button
+          @click="toggle(index)"
+          class="w-full text-left px-6 py-4 text-white font-medium flex justify-between items-center focus:outline-none transition-all duration-300"
+          :style="{
+            background: 'linear-gradient(90deg, #0085DE 0%, #005E9D 43%, #004878 85%)',
+          }"
+        >
+          {{ faq.question }}
+          <span class="text-xl">
+            <i :class="activeIndex === index ? 'fas fa-minus' : 'fas fa-plus'"></i>
+          </span>
+        </button>
+        <div v-if="activeIndex === index" class="bg-gray-100 px-6 py-4 text-sm text-black leading-relaxed">
+          {{ faq.answer }}
         </div>
       </div>
     </div>
@@ -307,35 +348,66 @@ const eventList = [
 const serviceList = [
   {
     title: "Learning Management System",
-    image: "/src/assets/icon/danger.svg",
+    icon: "fa-solid fa-chalkboard-user",
   },
   {
     title: "E-Library",
-    image: "/src/assets/icon/danger.svg",
+    icon: "fa-solid fa-book",
   },
   {
     title: "Sistem Informasi Terpadu",
-    image: "/src/assets/icon/danger.svg",
+    icon: "fa-solid fa-desktop",
   },
   {
     title: "Lapor POLIWANGI",
-    image: "/src/assets/icon/danger.svg",
+    icon: "fa-solid fa-comment-dots",
   },
   {
     title: "Mirror",
-    image: "/src/assets/icon/danger.svg",
+    icon: "fa-solid fa-arrows-rotate",
   },
   {
     title: "Job Placement Center",
-    image: "/src/assets/icon/danger.svg",
+    icon: "fa-solid fa-briefcase",
   },
   {
     title: "PMB",
-    image: "/src/assets/icon/danger.svg",
+    icon: "fa-solid fa-building-columns",
   },
   {
     title: "P3M",
-    image: "/src/assets/icon/danger.svg",
+    icon: "fa-solid fa-microscope",
+  },
+];
+
+// Faq
+const activeIndex = ref(null);
+
+function toggle(index) {
+  activeIndex.value = activeIndex.value === index ? null : index;
+}
+
+const faqs = [
+  {
+    question: "Apa saja program studi yang tersedia di Poliwangi?",
+    answer:
+      "Poliwangi menawarkan berbagai program studi, termasuk Teknologi Informasi, Teknik Mesin, Teknik Sipil, Teknologi Pengolahan Hasil Laut, Manajemen Bisnis, dan lainnya. Setiap program dirancang untuk memenuhi kebutuhan dunia kerja dan memberikan keterampilan praktis kepada mahasiswa.",
+  },
+  {
+    question: "Bagaimana cara mendaftar di Poliwangi?",
+    answer: "Pendaftaran dapat dilakukan secara online melalui situs resmi Poliwangi dengan mengikuti tahapan dan persyaratan yang ditentukan.",
+  },
+  {
+    question: "Apakah Poliwangi menerima jalur prestasi?",
+    answer: "Ya, Poliwangi menerima calon mahasiswa melalui jalur prestasi akademik dan non-akademik sesuai ketentuan yang berlaku.",
+  },
+  {
+    question: "Bagaimana sistem perkuliahan di Poliwangi?",
+    answer: "Perkuliahan di Poliwangi menggabungkan teori dan praktik, dengan dukungan fasilitas laboratorium dan dosen berpengalaman.",
+  },
+  {
+    question: "Apakah Poliwangi memiliki organisasi mahasiswa atau komunitas?",
+    answer: "Poliwangi memiliki berbagai organisasi dan komunitas mahasiswa yang aktif dalam kegiatan akademik maupun non-akademik.",
   },
 ];
 </script>

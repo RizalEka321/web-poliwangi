@@ -3,7 +3,6 @@
     <Navbar />
     <main class="flex-grow">
       <router-view />
-      <faq />
     </main>
     <Footer />
   </div>
@@ -11,8 +10,7 @@
 
 <script>
 import Navbar from "./Navbar.vue";
-import faq from './FAQ.vue'
 import Footer from "./Footer.vue";
 
-export default { components: { Navbar, faq, Footer } };
+export default { components: { Navbar, Footer } };
 </script>

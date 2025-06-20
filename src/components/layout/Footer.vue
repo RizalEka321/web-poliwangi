@@ -32,8 +32,7 @@
           <li>PPID Poliwangi</li>
           <li>Jalur Masuk</li>
           <li>Pengaduan Poliwangi</li>
-          <li>Survey Kepuasan 
-            <br>Masyarakat</li>
+          <li>Survey Kepuasan <br />Masyarakat</li>
         </ul>
       </div>
 
@@ -73,17 +72,6 @@
     </div>
 
     <!-- Copyright -->
-    <div class="text-left text-[var(--text-black)] text-sm py-3 px-6" style="background-color: var(--button-yellow); font-family: var(--font-albert)">
-      Copyright © 2024 POLITEKNIK NEGERI BANYUWANGI
-    </div>
+    <div class="text-left text-[var(--text-black)] text-sm py-3 px-6" style="background-color: var(--accent-yellow); font-family: var(--font-albert)">Copyright © 2024 POLITEKNIK NEGERI BANYUWANGI</div>
   </footer>
 </template>
-
-<script setup>
-// Tidak perlu logic JS untuk saat ini
-</script>
-
-<style scoped>
-/* Font Awesome (bisa juga dipindahkan global ke index.html atau layout utama) */
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css');
-</style>
