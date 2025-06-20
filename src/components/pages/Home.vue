@@ -45,7 +45,7 @@
       <h2 class="text-2xl md:text-2xl font-bold" style="font-family: var(--font-lora)">INFORMASI PENDAFTARAN</h2>
     </div>
     <div ref="cardContainer" class="overflow-x-hidden py-3 px-4 md:px-20">
-      <div class="flex space-x-6 transition-transform duration-500" :style="{ transform: `translateX(-${currentPageIndex * pageWidth}px)` }">
+      <div class="flex space-x-8 transition-transform duration-500" :style="{ transform: `translateX(-${currentPageIndex * pageWidth}px)` }">
         <div v-for="(item, index) in registrationData" :key="index" class="relative bg-white rounded-lg shadow-lg w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 flex-shrink-0 transition hover:shadow-xl overflow-hidden">
           <img src="/src/assets/img/banner_home.jpg" alt="" class="absolute inset-0 w-full h-full object-cover" />
           <div class="absolute inset-0 bg-black/50"></div>
