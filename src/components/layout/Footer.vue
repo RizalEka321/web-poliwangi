@@ -2,14 +2,27 @@
   <footer class="bg-[var(--blue-dark)] text-white font-[var(--font-albert)]">
     <div class="max-w-screen-xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-6 gap-6 text-sm">
       <!-- Logo dan Alamat -->
-      <div class="col-span-2 flex items-start space-x-2">
-        <img src="/src/assets/icon/logo.png" alt="Logo Poliwangi" class="h-13" />
-        <div>
-          <h1 class="text-xs" style="font-family: var(--font-playfair)">POLITEKNIK NEGERI</h1>
-          <h2 class="text-lg -mt-1" style="font-family: var(--font-playfair)">BANYUWANGI</h2>
-          <p class="mt-3 leading-5">Jalan Raya Jember KM 13<br />Banyuwangi 68461,<br />Jawa Timur – Indonesia</p>
+      <div class="col-span-2 flex">
+        <div class="flex items-start space-x-4">
+          <!-- Logo -->
+          <img src="/src/assets/icon/logo.png" alt="Logo Poliwangi" class="h-20 w-auto" />
+
+          <!-- Teks -->
+          <div>
+            <!-- Judul -->
+            <h1 class="text-lg" style="font-family: var(--font-playfair)">POLITEKNIK NEGERI</h1>
+            <h2 class="text-2xl -mt-1" style="font-family: var(--font-playfair)">BANYUWANGI</h2>
+
+            <!-- Alamat -->
+            <p class="text-sm mt-2 leading-snug font-[var(--font-albert)]">
+              Jalan Raya Jember KM 13 Banyuwangi 68461, <br />
+              Jawa Timur – Indonesia
+            </p>
+          </div>
         </div>
       </div>
+
+
 
       <!-- Profil -->
       <div>
