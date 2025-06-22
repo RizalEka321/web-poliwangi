@@ -148,7 +148,8 @@
 
   <section class="service relative w-full h-[400px] md:h-[500px] my-20">
     <img src="/src/assets/img/banner_home.jpg" alt="banner" class="w-full h-full object-cover" />
-    <div class="absolute inset-0 bg-[var(--blue-dark)]/50"></div>
+    <div class="absolute inset-0 rounded-lg bg-gradient-to-t from-blue-900 via-blue-600/30 to-transparent"></div>
+    <!-- <div class="absolute inset-0 bg-[var(--blue-dark)]/50"></div> -->
     <div class="absolute inset-0">
       <div class="flex items-center justify-center text-white z-10 px-4 md:px-20 py-15">
         <h2 class="text-4xl md:text-4xl font-black text-white" style="font-family: var(--font-lora)">Layanan Digital</h2>

@@ -27,7 +27,7 @@
           <router-link to="/sakip" class="block px-4 py-2 text-[#004878] hover:bg-[#004878] hover:text-white">SAKIP</router-link>
           <router-link to="/laporan-keuangan" class="block px-4 py-2 text-[#004878] hover:bg-[#004878] hover:text-white">Laporan Keuangan</router-link>
           <router-link to="/senat" class="block px-4 py-2 text-[#004878] hover:bg-[#004878] hover:text-white">Senat</router-link>
-          <router-link to="/organisasi" class="block px-4 py-2 text-[#004878] hover:bg-[#004878] hover:text-white">Organisasi</router-link>
+          <router-link to="/organisasi-poliwangi" class="block px-4 py-2 text-[#004878] hover:bg-[#004878] hover:text-white">Organisasi</router-link>
           <router-link to="/sistem-pendidikan" class="block px-4 py-2 text-[#004878] hover:bg-[#004878] hover:text-white">Sistem Pendidikan</router-link>
           <router-link to="/kerjasama-poliwangi" class="block px-4 py-2 text-[#004878] hover:bg-[#004878] hover:text-white">Kerjasama Poliwangi</router-link>
         </div>
@@ -189,10 +189,9 @@
         </button>
         <div v-if="openDropdown === 'layanan'" class="absolute bg-white text-black mt-2 py-2 w-53 rounded shadow-lg z-50 right-0 left-auto origin-top-right">
           <router-link to="/zona-integritas" class="block px-4 py-2 text-[#004878] hover:bg-[#004878] hover:text-white">Zona Integritas</router-link>
-          <router-link to="/ppid-poliwangi" class="block px-4 py-2 text-[#004878] hover:bg-[#004878] hover:text-white">PPID POLIWANGI</router-link>
+          <router-link to="/ppid" class="block px-4 py-2 text-[#004878] hover:bg-[#004878] hover:text-white">PPID POLIWANGI</router-link>
           <router-link to="/standar-pelayanan" class="block px-4 py-2 text-[#004878] hover:bg-[#004878] hover:text-white">Standar Pelayanan Publik</router-link>
           <router-link to="/survey-kepuasan" class="block px-4 py-2 text-[#004878] hover:bg-[#004878] hover:text-white">Survey Kepuasan Masyarakat</router-link>
-          <router-link to="/pengaduan" class="block px-4 py-2 text-[#004878] hover:bg-[#004878] hover:text-white">Pengaduan</router-link>
           <div class="relative">
             <button
               @click.stop="toggleSubDropdown('pengaduan')"
@@ -206,7 +205,7 @@
             </button>
             <div v-if="openSubDropdown === 'pengaduan'" class="absolute right-full top-0 mt-0 mr-1 bg-white text-black py-2 w-45 rounded shadow-lg z-50">
               <router-link to="/whisleblowing" class="block px-4 py-2 text-[#004878] hover:bg-[#004878] hover:text-white">Whisleblowing</router-link>
-              <router-link to="/pengaduan-poliwangi" class="block px-4 py-2 text-[#004878] hover:bg-[#004878] hover:text-white">Pengaduan Poliwangi</router-link>
+              <router-link to="/pengaduan" class="block px-4 py-2 text-[#004878] hover:bg-[#004878] hover:text-white">Pengaduan Poliwangi</router-link>
               <router-link to="/span-lapor" class="block px-4 py-2 text-[#004878] hover:bg-[#004878] hover:text-white">SPAN Lapor</router-link>
             </div>
           </div>
