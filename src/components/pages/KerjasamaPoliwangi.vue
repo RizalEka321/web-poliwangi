@@ -14,15 +14,18 @@
       </div>
     </div>
     <div class="text-justify leading-relaxed space-y-6" style="font-family: var(--font-albert)">
+      <div class="flex flex-col justify-center gap-4 mb-4">
+        <h2 class="text-xl md:text-2xl font-bold text-[var(--blue-dark)]" style="font-family: var(--font-lora)">Rekapitulasi Kerjasama Politeknik Banyuwangi 2025</h2>
+      </div>
       <div class="max-w-7xl mx-auto">
-        <div class="flex justify-end bg-[var(--blue-dark)] border-b border-gray-300 p-5">
+        <div class="flex justify-end bg-[var(--blue-dark)] border-b border-gray-300 p-5 rounded-t-lg">
           <div class="bg-white">
             <input v-model="search" type="text" placeholder="Search" class="border border-gray-300 rounded px-3 py-2 w-64 h-9" />
           </div>
         </div>
         <div class="overflow-x-auto">
           <table class="w-full text-sm text-left shadow rounded-lg bg-[var(--bg-grey)]">
-            <thead class="bg-[var(--blue-dark)] text-white">
+            <thead class="bg-[var(--blue-dark)] text-white" style="font-family: var(--font-lora)">
               <tr>
                 <th class="px-4 py-3 w-12">No.</th>
                 <th class="px-4 py-3">Nama Instansi</th>
@@ -35,18 +38,18 @@
             </thead>
             <tbody class="divide-y divide-gray-200">
               <tr v-for="item in paginatedData" :key="item.no">
-                <td class="px-4 py-3 border-b border-gray-300">{{ item.no }}.</td>
-                <td class="px-4 py-3 border-b border-gray-300">{{ item.instansi }}</td>
-                <td class="px-4 py-3 border-b border-gray-300">{{ item.kegiatan }}</td>
-                <td class="px-4 py-3 border-b border-gray-300">{{ item.mulai }}</td>
-                <td class="px-4 py-3 border-b border-gray-300">{{ item.berakhir }}</td>
-                <td class="px-4 py-3 border-b border-gray-300">{{ item.bentuk }}</td>
-                <td class="px-4 py-3 border-b border-gray-300">{{ item.jenis }}</td>
+                <td class="px-4 py-3 border-b border-[var(--blue-dark)]">{{ item.no }}.</td>
+                <td class="px-4 py-3 border-b border-[var(--blue-dark)]">{{ item.instansi }}</td>
+                <td class="px-4 py-3 border-b border-[var(--blue-dark)]">{{ item.kegiatan }}</td>
+                <td class="px-4 py-3 border-b border-[var(--blue-dark)]">{{ item.mulai }}</td>
+                <td class="px-4 py-3 border-b border-[var(--blue-dark)]">{{ item.berakhir }}</td>
+                <td class="px-4 py-3 border-b border-[var(--blue-dark)]">{{ item.bentuk }}</td>
+                <td class="px-4 py-3 border-b border-[var(--blue-dark)]">{{ item.jenis }}</td>
               </tr>
             </tbody>
             <tfoot class="bg-[var(--blue-dark)] text-[var(--text-black)]">
               <tr>
-                <td colspan="7">
+                <td colspan="7" class="rounded-b-lg">
                   <div class="flex justify-center items-center space-x-1 p-4">
                     <button :disabled="currentPage === 1" @click="currentPage--" class="w-8 h-8 bg-[var(--bg-grey)] rounded-xl shadow hover:bg-[var(--accent-blue)] hover:text-white disabled:opacity-50">
                       <i class="fa-solid fa-chevron-left"></i>

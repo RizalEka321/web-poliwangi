@@ -1,7 +1,7 @@
 <template>
   <section class="banner-home relative w-full h-[500px] md:h-[600px]">
     <img src="/src/assets/img/banner_home.jpg" alt="banner" class="w-full h-full object-cover" />
-    <div class="absolute inset-0 bg-black/50"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent"></div>
     <div class="absolute inset-0 flex items-center text-white z-10 px-4 md:px-20" style="font-family: var(--font-albert)">
       <div class="max-w-4xl">
         <h2 class="text-2xl sm:text-3xl md:text-5xl font-extrabold mb-2">Wujudkan Masa Depan Gemilang Bersama Poliwangi</h2>
@@ -48,7 +48,7 @@
       <div class="flex space-x-8 transition-transform duration-500" :style="{ transform: `translateX(-${currentPageIndex * pageWidth}px)` }">
         <div v-for="(item, index) in registrationData" :key="index" class="relative bg-white rounded-lg shadow-lg w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 flex-shrink-0 transition hover:shadow-xl overflow-hidden">
           <img src="/src/assets/img/banner_home.jpg" alt="" class="absolute inset-0 w-full h-full object-cover" />
-          <div class="absolute inset-0 bg-black/50"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
           <div class="relative z-10 p-4 text-white flex flex-col justify-end h-full">
             <h3 class="text-base font-bold">{{ item.title }}</h3>
             <p class="text-xs mb-3 text-justify">{{ item.description }}</p>
@@ -149,7 +149,6 @@
   <section class="service relative w-full h-[400px] md:h-[500px] my-20">
     <img src="/src/assets/img/banner_home.jpg" alt="banner" class="w-full h-full object-cover" />
     <div class="absolute inset-0 rounded-lg bg-gradient-to-t from-blue-900 via-blue-600/30 to-transparent"></div>
-    <!-- <div class="absolute inset-0 bg-[var(--blue-dark)]/50"></div> -->
     <div class="absolute inset-0">
       <div class="flex items-center justify-center text-white z-10 px-4 md:px-20 py-15">
         <h2 class="text-4xl md:text-4xl font-black text-white" style="font-family: var(--font-lora)">Layanan Digital</h2>

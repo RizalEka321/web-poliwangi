@@ -16,16 +16,16 @@
       <div class="mx-auto">
         <div class="overflow-x-auto">
           <table class="w-full text-sm text-left bg-[var(--bg-grey)] shadow rounded-lg">
-            <thead class="bg-[var(--blue-dark)] text-white">
+            <thead class="bg-[var(--blue-dark)] text-white" style="font-family: var(--font-lora)">
               <tr>
-                <th class="px-4 py-3 w-12">No.</th>
+                <th class="px-4 py-3 w-12 text-cente rounded-tl-lg">No.</th>
                 <th class="px-4 py-3">Nama Berkas</th>
-                <th class="px-4 py-3 w-32">Aksi</th>
+                <th class="px-4 py-3 w-32 rounded-tr-lg">Aksi</th>
               </tr>
             </thead>
             <tbody class="divide-y divide-gray-200 font-semibold">
               <tr v-for="item in layanan" :key="item.no">
-                <td class="px-4 py-3 border-b border-[var(--blue-dark)]">{{ item.no }}.</td>
+                <td class="px-4 py-3 border-b border-[var(--blue-dark)] text-center">{{ item.no }}.</td>
                 <td class="px-4 py-3 border-b border-[var(--blue-dark)]">{{ item.nama }}</td>
                 <td class="px-4 py-3 border-b border-[var(--blue-dark)]">
                   <button class="bg-[var(--blue-dark)] hover:bg-blue-600 text-white px-4 py-1 rounded flex items-center justify-center w-full"><i class="fa-solid fa-file-arrow-down me-2"></i>Unduh</button>
@@ -34,7 +34,7 @@
             </tbody>
             <tfoot class="bg-[var(--blue-dark)] text-white">
               <tr>
-                <td class="h-12" colspan="3"></td>
+                <td class="h-12 rounded-b-lg" colspan="3"></td>
               </tr>
             </tfoot>
           </table>

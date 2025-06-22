@@ -19,9 +19,9 @@
           <table class="w-full text-sm text-left bg-[var(--bg-grey)] shadow rounded-lg">
             <thead class="bg-[var(--blue-dark)] text-white">
               <tr>
-                <th class="px-4 py-3 w-12">No.</th>
+                <th class="px-4 py-3 w-12 rounded-tl-lg">No.</th>
                 <th class="px-4 py-3">Nama Berkas</th>
-                <th class="px-4 py-3 w-32">Aksi</th>
+                <th class="px-4 py-3 w-32 rounded-tr-lg">Aksi</th>
               </tr>
             </thead>
             <tbody class="divide-y divide-gray-200 font-semibold">
@@ -35,7 +35,7 @@
             </tbody>
             <tfoot class="bg-[var(--blue-dark)] text-white">
               <tr>
-                <td class="h-12" colspan="3"></td>
+                <td class="h-12 rounded-b-lg" colspan="3"></td>
               </tr>
             </tfoot>
           </table>

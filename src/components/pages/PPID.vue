@@ -20,62 +20,44 @@
       </div>
       <div class="flex justify-center">
         <div class="overflow-x-auto w-full max-w-4xl p-2 bg-white">
-          <table class="min-w-full text-center border-collapse" style="font-family: var(--font-lora)">
-            <thead class="bg-[var(--blue-dark)] text-white">
-              <tr>
-                <th class="p-2 border border-[var(--blue-dark)]">No.</th>
-                <th class="p-2 border border-[var(--blue-dark)]">Struktur Organisasi Senat</th>
-                <th class="p-2 border border-[var(--blue-dark)]">Nama</th>
-              </tr>
-            </thead>
-            <tbody class="text-gray-800">
-              <tr>
-                <td class="p-2 border border-[var(--blue-dark)]">1</td>
-                <td class="p-2 border border-[var(--blue-dark)] text-start">Atasan PPID</td>
-                <td class="p-2 border border-[var(--blue-dark)] text-start">Direktur</td>
-              </tr>
-              <tr>
-                <td class="p-2 border border-[var(--blue-dark)]">2</td>
-                <td class="p-2 border border-[var(--blue-dark)] text-start">PPID Pelaksana</td>
-                <td class="p-2 border border-[var(--blue-dark)] text-start">Wakil Direktur Bidang Umum dan Keuangan</td>
-              </tr>
-              <tr class="bg-[var(--blue-dark)] text-white font-bold">
-                <td colspan="3" class="p-2 border border-[var(--blue-dark)] text-center">Pelayanan Informasi</td>
-              </tr>
-              <tr>
-                <td class="p-2 border border-[var(--blue-dark)]">3</td>
-                <td class="p-2 border border-[var(--blue-dark)] text-start">Bidang Akademik dan Kemahasiswaan</td>
-                <td class="p-2 border border-[var(--blue-dark)] text-start">Kepala BAKPSI</td>
-              </tr>
-              <tr>
-                <td class="p-2 border border-[var(--blue-dark)]">4</td>
-                <td class="p-2 border border-[var(--blue-dark)] text-start">Bidang Penelitian dan Kerjasama</td>
-                <td class="p-2 border border-[var(--blue-dark)] text-start">Kepala PPPM</td>
-              </tr>
-              <tr>
-                <td class="p-2 border border-[var(--blue-dark)]">5</td>
-                <td class="p-2 border border-[var(--blue-dark)] text-start">Bidang Keuangan, Sarana, dan Prasarana</td>
-                <td class="p-2 border border-[var(--blue-dark)] text-start">Kasubbag Keuangan</td>
-              </tr>
-              <tr>
-                <td class="p-2 border border-[var(--blue-dark)]">6</td>
-                <td class="p-2 border border-[var(--blue-dark)] text-start">Petugas Penyelesaian Sengketa</td>
-                <td class="p-2 border border-[var(--blue-dark)] text-start">Kasubbag Umum dan Kepegawaian</td>
-              </tr>
-              <tr>
-                <td class="p-2 border border-[var(--blue-dark)]">7</td>
-                <td class="p-2 border border-[var(--blue-dark)] text-start">Pengelola Informasi dan Dokumentasi</td>
-                <td class="p-2 border border-[var(--blue-dark)] text-start">Hubungan Masyarakat</td>
-              </tr>
-              <tr>
-                <td class="p-2 border border-[var(--blue-dark)]">8</td>
-                <td class="p-2 border border-[var(--blue-dark)] text-start">Pengembang PPID bagian TIK</td>
-                <td class="p-2 border border-[var(--blue-dark)] text-start">Kepala UPT TIK</td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="overflow-x-auto bg-white rounded-lg shadow border border-[var(--blue-dark)]">
+            <table class="min-w-full text-left text-sm text-gray-700 border-collapse">
+              <thead class="bg-[var(--blue-dark)] text-white">
+                <tr>
+                  <th class="p-2 border border-[var(--blue-dark)] text-center">No.</th>
+                  <th class="p-2 border border-[var(--blue-dark)]">Struktur Organisasi Senat</th>
+                  <th class="p-2 border border-[var(--blue-dark)]">Nama</th>
+                </tr>
+              </thead>
+              <tbody>
+                <template v-for="item in strukturOrganisasi" :key="item.no">
+                  <tr v-if="item.isHeader" class="bg-[var(--blue-dark)] text-white font-bold">
+                    <td colspan="3" class="p-2 border border-[var(--blue-dark)] text-center">{{ item.bagian }}</td>
+                  </tr>
+                  <tr v-else>
+                    <td class="p-2 border border-[var(--blue-dark) text-center">{{ item.no }}</td>
+                    <td class="p-2 border border-[var(--blue-dark)] text-start">{{ item.bagian }}</td>
+                    <td class="p-2 border border-[var(--blue-dark)] text-start">{{ item.nama }}</td>
+                  </tr>
+                </template>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
   </section>
 </template>
+<script setup>
+const strukturOrganisasi = [
+  { no: 1, bagian: "Atasan PPID", nama: "Direktur" },
+  { no: 2, bagian: "PPID Pelaksana", nama: "Wakil Direktur Bidang Umum dan Keuangan" },
+  { no: 3, bagian: "Pelayanan Informasi", nama: "", isHeader: true },
+  { no: 4, bagian: "Bidang Akademik dan Kemahasiswaan", nama: "Kepala BAKPSI" },
+  { no: 5, bagian: "Bidang Penelitian dan Kerjasama", nama: "Kepala PPPM" },
+  { no: 6, bagian: "Bidang Keuangan, Sarana, dan Prasarana", nama: "Kasubbag Keuangan" },
+  { no: 7, bagian: "Petugas Penyelesaian Sengketa", nama: "Kasubbag Umum dan Kepegawaian" },
+  { no: 8, bagian: "Pengelola Informasi dan Dokumentasi", nama: "Hubungan Masyarakat" },
+  { no: 9, bagian: "Pengembang PPID bagian TIK", nama: "Kepala UPT TIK" },
+];
+</script>
