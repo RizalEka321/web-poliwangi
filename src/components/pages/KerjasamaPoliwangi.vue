@@ -51,7 +51,7 @@
               <tr>
                 <td colspan="7" class="rounded-b-lg">
                   <div class="flex justify-center items-center space-x-1 p-4">
-                    <button :disabled="currentPage === 1" @click="currentPage--" class="w-8 h-8 bg-[var(--bg-grey)] rounded-xl shadow hover:bg-[var(--accent-blue)] hover:text-white disabled:opacity-50">
+                    <button :disabled="currentPage === 1" @click="currentPage--" class="w-8 h-8 bg-[var(--bg-grey)] rounded-xl shadow hover:bg-[var(--accent-blue)] hover:text-white disabled:opacity-50 transition duration-300 ease-in-out">
                       <i class="fa-solid fa-chevron-left"></i>
                     </button>
 
@@ -59,12 +59,16 @@
                       v-for="page in totalPages"
                       :key="page"
                       @click="currentPage = page"
-                      :class="['w-8 h-8 rounded-xl shadow', currentPage === page ? 'bg-blue-500 text-white' : 'bg-white hover:bg-[var(--accent-blue)] hover:text-white']"
+                      :class="['w-8 h-8 rounded-xl shadow transition duration-300 ease-in-out', currentPage === page ? 'bg-blue-500 text-white' : 'bg-white hover:bg-[var(--accent-blue)] hover:text-white']"
                     >
                       {{ page }}
                     </button>
 
-                    <button :disabled="currentPage === totalPages" @click="currentPage++" class="w-8 h-8 bg-[var(--bg-grey)] rounded-xl shadow hover:bg-[var(--accent-blue)] hover:text-white disabled:opacity-50">
+                    <button
+                      :disabled="currentPage === totalPages"
+                      @click="currentPage++"
+                      class="w-8 h-8 bg-[var(--bg-grey)] rounded-xl shadow hover:bg-[var(--accent-blue)] hover:text-white disabled:opacity-50 transition duration-300 ease-in-out"
+                    >
                       <i class="fa-solid fa-chevron-right"></i>
                     </button>
                   </div>
