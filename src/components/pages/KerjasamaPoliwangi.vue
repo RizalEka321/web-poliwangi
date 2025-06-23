@@ -1,85 +1,87 @@
 <template>
-  <div class="flex space-x-4 pt-6 pb-10 px-5 md:px-20" style="font-family: var(--font-albert)">
-    <router-link to="/" class="text-[#626262] hover:text-yellow-300 font-normal">Home</router-link>
-    <a class="text-black hover:text-yellow-300 font-medium">Profil</a>
-  </div>
-
-  <section class="sejarah pb-10 px-5 md:px-20">
-    <div class="relative mb-8">
-      <img src="/src/assets/img/banner_home.jpg" alt="Foto Poliwangi" class="w-full h-45 object-cover shadow-lg" />
+  <div class="px-6 md:px-20 py-10 space-y-10">
+    <div class="text-sm text-[var(--text-gray)] font-[var(--font-albert)]">
+      <router-link to="/" class="hover:underline hover:text-[var(--accent-blue)]">Home</router-link>
+      <span class="mx-1 text-[var(--accent-yellow)]">›</span>
+      <span class="text-[var(--text-black)] font-medium">Profil</span>
+    </div>
+    <div class="relative w-full max-w-[1364px] h-[301px] mx-auto overflow-hidden">
+      <img :src="banner" alt="Banner" class="object-cover w-full h-full" />
       <div class="absolute inset-0 bg-[var(--blue-dark)]/50"></div>
       <div class="absolute inset-0 flex flex-col items-start justify-center ps-10" style="font-family: var(--font-lora)">
-        <h1 class="text-2xl md:text-4xl font-bold text-white text-center">Kerjasama</h1>
-        <h2 class="text-2xl md:text-4xl font-bold text-white text-center">Politeknik Negeri Banyuwangi</h2>
+        <h1 class="text-3xl md:text-5xl font-bold text-white text-center mb-2">Kerjasama</h1>
+        <h2 class="text-3xl md:text-5xl font-bold text-white text-center">Politeknik Negeri Banyuwangi</h2>
       </div>
     </div>
-    <div class="text-justify leading-relaxed space-y-6" style="font-family: var(--font-albert)">
-      <div class="flex flex-col justify-center gap-4 mb-4">
-        <h2 class="text-xl md:text-2xl font-bold text-[var(--blue-dark)]" style="font-family: var(--font-lora)">Rekapitulasi Kerjasama Politeknik Banyuwangi 2025</h2>
-      </div>
-      <div class="max-w-7xl mx-auto">
-        <div class="flex justify-end bg-[var(--blue-dark)] border-b border-gray-300 p-5 rounded-t-lg">
-          <div class="bg-white">
-            <input v-model="search" type="text" placeholder="Search" class="border border-gray-300 rounded px-3 py-2 w-64 h-9" />
+    <section class="kerjasama">
+      <div class="text-justify leading-relaxed space-y-6" style="font-family: var(--font-albert)">
+        <div class="flex flex-col justify-center gap-4 mb-4">
+          <h2 class="text-xl md:text-2xl font-bold text-[var(--blue-dark)]" style="font-family: var(--font-lora)">Rekapitulasi Kerjasama Politeknik Banyuwangi 2025</h2>
+        </div>
+        <div class="max-w-7xl mx-auto">
+          <div class="flex justify-end bg-[var(--blue-dark)] border-b border-gray-300 p-5 rounded-t-lg">
+            <div class="bg-white">
+              <input v-model="search" type="text" placeholder="Search" class="border border-gray-300 rounded px-3 py-2 w-64 h-9" />
+            </div>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm text-left shadow rounded-lg bg-[var(--bg-grey)]">
+              <thead class="bg-[var(--blue-dark)] text-white" style="font-family: var(--font-lora)">
+                <tr>
+                  <th class="px-4 py-3 w-12">No.</th>
+                  <th class="px-4 py-3">Nama Instansi</th>
+                  <th class="px-4 py-3">Jenis Kegiatan</th>
+                  <th class="px-4 py-3">Mulai</th>
+                  <th class="px-4 py-3">Berakhir</th>
+                  <th class="px-4 py-3">Bentuk Kerjasama</th>
+                  <th class="px-4 py-3">Jenis Kerjasama</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-200">
+                <tr v-for="item in paginatedData" :key="item.no">
+                  <td class="px-4 py-3 border-b border-[var(--blue-dark)]">{{ item.no }}.</td>
+                  <td class="px-4 py-3 border-b border-[var(--blue-dark)]">{{ item.instansi }}</td>
+                  <td class="px-4 py-3 border-b border-[var(--blue-dark)]">{{ item.kegiatan }}</td>
+                  <td class="px-4 py-3 border-b border-[var(--blue-dark)]">{{ item.mulai }}</td>
+                  <td class="px-4 py-3 border-b border-[var(--blue-dark)]">{{ item.berakhir }}</td>
+                  <td class="px-4 py-3 border-b border-[var(--blue-dark)]">{{ item.bentuk }}</td>
+                  <td class="px-4 py-3 border-b border-[var(--blue-dark)]">{{ item.jenis }}</td>
+                </tr>
+              </tbody>
+              <tfoot class="bg-[var(--blue-dark)] text-[var(--text-black)]">
+                <tr>
+                  <td colspan="7" class="rounded-b-lg">
+                    <div class="flex justify-center items-center space-x-1 p-4">
+                      <button :disabled="currentPage === 1" @click="currentPage--" class="w-8 h-8 bg-[var(--bg-grey)] rounded-xl shadow hover:bg-[var(--accent-blue)] hover:text-white disabled:opacity-50 transition duration-300 ease-in-out">
+                        <i class="fa-solid fa-chevron-left"></i>
+                      </button>
+
+                      <button
+                        v-for="page in totalPages"
+                        :key="page"
+                        @click="currentPage = page"
+                        :class="['w-8 h-8 rounded-xl shadow transition duration-300 ease-in-out', currentPage === page ? 'bg-blue-500 text-white' : 'bg-white hover:bg-[var(--accent-blue)] hover:text-white']"
+                      >
+                        {{ page }}
+                      </button>
+
+                      <button
+                        :disabled="currentPage === totalPages"
+                        @click="currentPage++"
+                        class="w-8 h-8 bg-[var(--bg-grey)] rounded-xl shadow hover:bg-[var(--accent-blue)] hover:text-white disabled:opacity-50 transition duration-300 ease-in-out"
+                      >
+                        <i class="fa-solid fa-chevron-right"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </tfoot>
+            </table>
           </div>
         </div>
-        <div class="overflow-x-auto">
-          <table class="w-full text-sm text-left shadow rounded-lg bg-[var(--bg-grey)]">
-            <thead class="bg-[var(--blue-dark)] text-white" style="font-family: var(--font-lora)">
-              <tr>
-                <th class="px-4 py-3 w-12">No.</th>
-                <th class="px-4 py-3">Nama Instansi</th>
-                <th class="px-4 py-3">Jenis Kegiatan</th>
-                <th class="px-4 py-3">Mulai</th>
-                <th class="px-4 py-3">Berakhir</th>
-                <th class="px-4 py-3">Bentuk Kerjasama</th>
-                <th class="px-4 py-3">Jenis Kerjasama</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-gray-200">
-              <tr v-for="item in paginatedData" :key="item.no">
-                <td class="px-4 py-3 border-b border-[var(--blue-dark)]">{{ item.no }}.</td>
-                <td class="px-4 py-3 border-b border-[var(--blue-dark)]">{{ item.instansi }}</td>
-                <td class="px-4 py-3 border-b border-[var(--blue-dark)]">{{ item.kegiatan }}</td>
-                <td class="px-4 py-3 border-b border-[var(--blue-dark)]">{{ item.mulai }}</td>
-                <td class="px-4 py-3 border-b border-[var(--blue-dark)]">{{ item.berakhir }}</td>
-                <td class="px-4 py-3 border-b border-[var(--blue-dark)]">{{ item.bentuk }}</td>
-                <td class="px-4 py-3 border-b border-[var(--blue-dark)]">{{ item.jenis }}</td>
-              </tr>
-            </tbody>
-            <tfoot class="bg-[var(--blue-dark)] text-[var(--text-black)]">
-              <tr>
-                <td colspan="7" class="rounded-b-lg">
-                  <div class="flex justify-center items-center space-x-1 p-4">
-                    <button :disabled="currentPage === 1" @click="currentPage--" class="w-8 h-8 bg-[var(--bg-grey)] rounded-xl shadow hover:bg-[var(--accent-blue)] hover:text-white disabled:opacity-50 transition duration-300 ease-in-out">
-                      <i class="fa-solid fa-chevron-left"></i>
-                    </button>
-
-                    <button
-                      v-for="page in totalPages"
-                      :key="page"
-                      @click="currentPage = page"
-                      :class="['w-8 h-8 rounded-xl shadow transition duration-300 ease-in-out', currentPage === page ? 'bg-blue-500 text-white' : 'bg-white hover:bg-[var(--accent-blue)] hover:text-white']"
-                    >
-                      {{ page }}
-                    </button>
-
-                    <button
-                      :disabled="currentPage === totalPages"
-                      @click="currentPage++"
-                      class="w-8 h-8 bg-[var(--bg-grey)] rounded-xl shadow hover:bg-[var(--accent-blue)] hover:text-white disabled:opacity-50 transition duration-300 ease-in-out"
-                    >
-                      <i class="fa-solid fa-chevron-right"></i>
-                    </button>
-                  </div>
-                </td>
-              </tr>
-            </tfoot>
-          </table>
-        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
 </template>
 <script setup>
 import { ref, computed } from "vue";
@@ -166,4 +168,6 @@ const paginatedData = computed(() => {
   const start = (currentPage.value - 1) * perPage;
   return filteredData.value.slice(start, start + perPage);
 });
+
+import banner from "@/assets/img/banner_home.jpg";
 </script>
