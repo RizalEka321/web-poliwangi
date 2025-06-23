@@ -25,16 +25,16 @@
       <p class="text-base md:text-sm text-[var(--text-black)] text-justify">Bersama Poliwangi, raih masa depan cerah dengan pendidikan yang berorientasi pada keterampilan dan inovasi!</p>
     </div>
     <div class="flex-1">
-      <div class="w-full aspect-video rounded-lg shadow-lg overflow-hidden">
+      <div class="w-full aspect-video rounded overflow-hidden">
         <iframe
           class="w-full h-full"
-          src="https://www.youtube.com/embed/ID_VIDEO_KAMU"
-          title="Profil Poliwangi"
+          src="https://www.youtube.com/embed/YL9pZKcBgGk?si=39mIIru3oVi7ToE8"
+          title="YouTube video player"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
           allowfullscreen
-        >
-        </iframe>
+        ></iframe>
       </div>
     </div>
   </section>
@@ -46,7 +46,7 @@
     </div>
     <div ref="cardContainer" class="overflow-x-hidden py-3 px-4 md:px-20">
       <div class="flex space-x-8 transition-transform duration-500" :style="{ transform: `translateX(-${currentPageIndex * pageWidth}px)` }">
-        <div v-for="(item, index) in registrationData" :key="index" class="relative bg-white rounded-lg shadow-lg w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 flex-shrink-0 transition hover:shadow-xl overflow-hidden">
+        <a v-for="(item, index) in registrationData" :key="index" href="/" class="relative bg-white rounded-lg shadow-lg w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 flex-shrink-0 transition hover:shadow-xl overflow-hidden block">
           <img src="/src/assets/img/banner_home.jpg" alt="" class="absolute inset-0 w-full h-full object-cover" />
           <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
           <div class="relative z-10 p-4 text-white flex flex-col justify-end h-full">
@@ -55,24 +55,28 @@
             <hr />
             <div class="flex justify-between items-center text-xs mt-2">
               <p><i class="fa-solid fa-calendar-days me-2"></i>21 Maret 2002</p>
-              <router-link :to="item.link" class="font-semibold hover:text-yellow-400">Read More<i class="fa-solid fa-arrow-right ms-2"></i></router-link>
+              <span class="font-semibold hover:text-yellow-400">Read More <i class="fa-solid fa-arrow-right ms-2"></i></span>
             </div>
           </div>
-        </div>
+        </a>
       </div>
     </div>
     <div class="flex justify-center items-center mt-10 space-x-2">
-      <button class="w-10 h-10 rounded-xl bg-[#E0E0E0] shadow font-bold hover:bg-[var(--accent-blue)] hover:text-white" @click="prevPage" :disabled="currentPageIndex === 0"><i class="fa-solid fa-chevron-left"></i></button>
+      <button class="w-10 h-10 rounded-xl bg-[#E0E0E0] shadow font-bold hover:bg-[var(--accent-blue)] hover:text-white transition duration-300 ease-in-out" @click="prevPage" :disabled="currentPageIndex === 0">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
       <button
         v-for="page in totalPages"
         :key="page"
-        class="w-10 h-10 rounded-xl shadow font-bold"
+        class="w-10 h-10 rounded-xl shadow font-bold transition duration-300 ease-in-out"
         :class="currentPageIndex === page - 1 ? 'bg-[var(--accent-blue)] text-white' : 'bg-[#E0E0E0] text-[var(--text-black)] hover:bg-[var(--accent-blue)] hover:text-white'"
         @click="goToPage(page - 1)"
       >
         {{ page }}
       </button>
-      <button class="w-10 h-10 rounded-xl bg-[#E0E0E0] shadow font-bold hover:bg-[var(--accent-blue)] hover:text-white" @click="nextPage" :disabled="currentPageIndex === totalPages - 1"><i class="fa-solid fa-chevron-right"></i></button>
+      <button class="w-10 h-10 rounded-xl bg-[#E0E0E0] shadow font-bold hover:bg-[var(--accent-blue)] hover:text-white transition duration-300 ease-in-out" @click="nextPage" :disabled="currentPageIndex === totalPages - 1">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
     </div>
   </section>
 
@@ -81,9 +85,7 @@
       <h2 class="text-2xl md:text-2xl font-bold text-[var(--accent-yellow)]" style="font-family: var(--font-lora)"><span class="text-[var(--blue-dark)]">Berita Terkini</span> POLIWANGI</h2>
       <div class="w-20 h-1 bg-[var(--accent-yellow)] rounded-full"></div>
     </div>
-
     <div class="px-4 mb-5 md:px-20 flex flex-col md:flex-row gap-10">
-      <!-- Berita Utama (kiri) -->
       <div class="flex-1">
         <div class="bg-white overflow-hidden cursor-pointer">
           <img src="/src/assets/img/banner_home.jpg" alt="Berita Utama" class="w-full h-60 object-cover" />
@@ -98,20 +100,20 @@
           </div>
         </div>
       </div>
-
-      <!-- List Berita (kanan) -->
       <div class="flex-1 space-y-1">
         <div v-for="(item, index) in beritaList" :key="index" class="bg-white p-2 flex gap-4 items-stretch cursor-pointer">
-          <img src="/src/assets/img/banner_home.jpg" alt="Thumbnail" class="w-[120px] object-cover" />
-          <div class="flex-1">
-            <h4 class="font-bold text-[var(--text-black)] mb-1 text-justify leading-[1.3rem] hover:text-yellow-400">{{ item.title }}</h4>
-            <div class="flex items-center text-sm text-[var(--text-black)]">
-              <p><i class="fa-solid fa-calendar-days me-2"></i>{{ item.date }}</p>
-              <span class="mx-2">|</span>
-              <p><i class="fa-solid fa-tags me-2"></i>Berita</p>
+          <a href="/" class="flex gap-4 items-stretch w-full">
+            <img src="/src/assets/img/banner_home.jpg" alt="Thumbnail" class="w-[120px] object-cover" />
+            <div class="flex-1">
+              <h4 class="font-bold text-[var(--text-black)] mb-1 text-justify leading-[1.3rem] hover:text-yellow-400">{{ item.title }}</h4>
+              <div class="flex items-center text-sm text-[var(--text-black)]">
+                <p><i class="fa-solid fa-calendar-days me-2"></i>{{ item.date }}</p>
+                <span class="mx-2">|</span>
+                <p><i class="fa-solid fa-tags me-2"></i>Berita</p>
+              </div>
+              <p class="text-sm text-justify leading-[1.2rem]">{{ item.description }}</p>
             </div>
-            <p class="text-sm text-justify leading-[1.2rem]">{{ item.description }}</p>
-          </div>
+          </a>
         </div>
         <div class="flex justify-end">
           <router-link to="/berita" class="font-semibold hover:text-yellow-400">Berita Lainnya<i class="fa-solid fa-circle-right ms-2"></i></router-link>
@@ -128,20 +130,19 @@
 
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4 md:px-20">
       <div v-for="(item, index) in eventList" :key="index" class="bg-white overflow-hidden cursor-pointer">
-        <!-- Gambar -->
-        <div class="h-48 overflow-hidden">
-          <img :src="item.image" :alt="item.title" class="w-full h-full object-cover" />
-        </div>
-
-        <!-- Teks -->
-        <div class="py-2">
-          <div class="flex justify-between items-center text-sm font-semibold text-[var(--text-black)] mb-1">
-            <p>Event</p>
-            <p>{{ item.date }}</p>
+        <a href="/" class="block">
+          <div class="h-48 overflow-hidden">
+            <img :src="item.image" :alt="item.title" class="w-full h-full object-cover" />
           </div>
-          <hr />
-          <h3 class="font-semibold text-base mb-2 text-[var(--text-black)] leading-[1.3rem] text-justify hover:text-yellow-400">{{ item.title }}</h3>
-        </div>
+          <div class="py-2">
+            <div class="flex justify-between items-center text-sm font-semibold text-[var(--text-black)] mb-1">
+              <p>Event</p>
+              <p>{{ item.date }}</p>
+            </div>
+            <hr />
+            <h3 class="font-semibold text-base mb-2 text-[var(--text-black)] leading-[1.3rem] text-justify hover:text-yellow-400">{{ item.title }}</h3>
+          </div>
+        </a>
       </div>
     </div>
   </section>
