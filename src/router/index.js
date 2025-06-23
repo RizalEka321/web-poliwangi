@@ -73,6 +73,16 @@ const routes = [
     name: "Biaya Pendidikan",
     component: () => import("../components/pages/BiayaPendidikan.vue"),
   },
+  {
+    path: "/kehidupan-kampus",
+    name: "Kehidupan Kampus",
+    component: () => import("../components/pages/KehidupanKampus.vue"),
+  },
+  {
+    path: "/publikasi",
+    name: "Publikasi",
+    component: () => import("../components/pages/Publikasi.vue"),
+  },
   // Pendaftaran
   {
     path: "/snbp",

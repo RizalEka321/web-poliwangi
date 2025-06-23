@@ -8,9 +8,13 @@
       </div>
   
       <!-- Banner -->
-      <div class="relative w-full h-64 md:h-80 overflow-hidden">
-        <img :src="bannerAkademik" alt="Banner Akademik" class="object-cover w-full h-full" />
-        <div class="absolute inset-0 bg-opacity-60 flex items-center ml-20">
+      <div class="relative w-full max-w-[1364px] h-[301px] mx-auto overflow-hidden">
+        <img
+          :src="bannerAkademik"
+          alt="Banner Akademik"
+          class="object-cover w-full h-full"
+        />
+        <div class="absolute inset-0 flex items-center pl-10">
           <h1 class="text-3xl md:text-5xl font-bold text-white" style="font-family: var(--font-lora);">
             Peraturan Akademik
           </h1>
