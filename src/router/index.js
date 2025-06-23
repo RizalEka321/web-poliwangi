@@ -13,8 +13,8 @@ const routes = [
     component: () => import("../components/pages/SambutanDirektur.vue"),
   },
   {
-    path: "/sejarah-poliwangi",
-    name: "Sejarah Poliwangi",
+    path: "/sejarah-singkat-poliwangi",
+    name: "Sejarah Singkat Poliwangi",
     component: () => import("../components/pages/SejarahPoliwangi.vue"),
   },
   {
@@ -38,7 +38,7 @@ const routes = [
     component: () => import("../components/pages/Senat.vue"),
   },
   {
-    path: "/organisai-poliwangi",
+    path: "/organisasi-poliwangi",
     name: "Organisasi Poliwangi",
     component: () => import("../components/pages/Organisasi.vue"),
   },
@@ -72,6 +72,43 @@ const routes = [
     path: "/biaya-pendidikan",
     name: "Biaya Pendidikan",
     component: () => import("../components/pages/BiayaPendidikan.vue"),
+  },
+  // Pendaftaran
+  {
+    path: "/snbp",
+    name: "SNBP",
+    component: () => import("../components/pages/SNBP.vue"),
+  },
+  {
+    path: "/utbk",
+    name: "UTBK",
+    component: () => import("../components/pages/UTBK.vue"),
+  },
+  {
+    path: "/mandiri",
+    name: "Mandiri",
+    component: () => import("../components/pages/Mandiri.vue"),
+  },
+  // Layanan
+  {
+    path: "/ppid",
+    name: "PPID",
+    component: () => import("../components/pages/PPID.vue"),
+  },
+  {
+    path: "/standar-pelayanan",
+    name: "Standar Pelayanan",
+    component: () => import("../components/pages/StandarPelayanan.vue"),
+  },
+  {
+    path: "/survey-kepuasan",
+    name: "Survey Kepuasan",
+    component: () => import("../components/pages/SurveyKepuasan.vue"),
+  },
+  {
+    path: "/pengaduan",
+    name: "Pengaduan",
+    component: () => import("../components/pages/Pengaduan.vue"),
   },
 ];
 
