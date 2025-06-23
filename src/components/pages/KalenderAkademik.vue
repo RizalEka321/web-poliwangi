@@ -26,7 +26,7 @@
       <h2 class="text-xl font-bold mb-2 border-b-2 border-[var(--accent-yellow)] inline-block text-[var(--blue-dark)]" style="font-family: var(--font-lora);">
         Gambaran Umum
       </h2>
-      <p class="text-justify text-[var(--text-gray)]" style="font-family: var(--font-albert);">
+      <p class="text-justify text-[var(--text-black)]" style="font-family: var(--font-albert);">
         Kalender Akademik adalah Uraian jadwal pelaksanaan kegiatan Akademik yang akan di laksanakan oleh seluruh sivitas akademik di perguruan tinggi, yang berisi Pengaturan jadwal Penerimaan Mahasiswa Baru, Program Pengenalan Kampus, Her Registrasi, Perkuliahan dan Ujian, Tugas Akhir atau Proyek Akhir, Yudisium dan Wisuda.
         <br /><br />
         Jadwal Kegiatan pada Kalender Akademik ditetapkan berdasarkan Keputusan Direktur Politeknik Negeri Banyuwangi setelah memperolah pertimbangan dan Senat Politeknik Negeri Banyuwangi.
@@ -37,10 +37,10 @@
       <h2 class="text-xl font-bold mb-2 border-b-2 border-[var(--accent-yellow)] inline-block text-[var(--blue-dark)]" style="font-family: var(--font-lora);">
         Dasar Hukum
       </h2>
-      <p class="text-justify text-[var(--text-gray)] mb-2" style="font-family: var(--font-albert);">
+      <p class="text-justify text-[var(--text-black)] mb-2" style="font-family: var(--font-albert);">
         Penyusunan Kalender Akademik didasarkan pada beberapa peraturan pokok antara lain:
       </p>
-      <ul class="list-decimal list-outside pl-5 space-y-1 text-justify text-[var(--text-gray)]" style="font-family: var(--font-albert);">
+      <ul class="list-decimal list-outside pl-5 space-y-1 text-justify text-[var(--text-black)]" style="font-family: var(--font-albert);">
         <li>
           Undang-undang Nomor 12 Tahun 2012 tentang Pendidikan Tinggi (Lembaran Negara Republik Indonesia Tahun 2012 Nomor 158 dan Tambahan Lembaran Negara Republik Indonesia Nomor 5336);
         </li>
@@ -62,10 +62,10 @@
       <h2 class="text-xl font-bold mb-2 border-b-2 border-[var(--accent-yellow)] inline-block text-[var(--blue-dark)]" style="font-family: var(--font-lora);">
         Tujuan dan Manfaat
       </h2>
-      <p class="mb-2 text-justify text-[var(--text-gray)]" style="font-family: var(--font-albert);">
+      <p class="mb-2 text-justify text-[var(--text-black)]" style="font-family: var(--font-albert);">
         Dengan ditetapkannya Kalender Akademik di harapkan dapat memberikan jadwal yang tepat pada setiap kegiatan akademik dengan jangka waktu yang telah di tetapkan. Oleh karena itu pembuatan Kalender Akademik memiliki maksud dan tujuan :
       </p>
-      <ol class="list-decimal list-outside pl-5 space-y-1 text-justify text-[var(--text-gray)]" style="font-family: var(--font-albert);">
+      <ol class="list-decimal list-outside pl-5 space-y-1 text-justify text-[var(--text-black)]" style="font-family: var(--font-albert);">
         <li>Memberikan informasi jadwal pelaksanaan kegiatan akademik kepada Mahasiswa selama menempuh pendidikan di Poliwangi.</li>
         <li>Memberikan informasi kapan jadwal pelaksanaan kegiatan akademik kepada Dosen dan karyawan sehingga dapat mempersiapkan menyusun kegiatan akademik sesuai dengan jadwal.</li>
       </ol>

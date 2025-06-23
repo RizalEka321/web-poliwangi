@@ -83,6 +83,12 @@ const routes = [
     name: "Publikasi",
     component: () => import("../components/pages/Publikasi.vue"),
   },
+  {
+    path: "/organisasi-kemahasiswaan",
+    name: "OrganisasiKemahasiswaan",
+    component: () => import("../components/pages/OrganisasiKemahasiswaan.vue"),
+  },
+
   // Pendaftaran
   {
     path: "/snbp",
