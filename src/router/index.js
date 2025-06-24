@@ -118,6 +118,11 @@ const routes = [
   },
   // Layanan
   {
+    path: "/maklumat-pelayanan",
+    name: "Maklumat Pelayanan",
+    component: () => import("../components/pages/MaklumatPelayanan.vue"),
+  },
+  {
     path: "/ppid",
     name: "PPID",
     component: () => import("../components/pages/PPID.vue"),
