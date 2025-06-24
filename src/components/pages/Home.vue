@@ -47,10 +47,9 @@
     <div ref="cardContainer" class="overflow-x-hidden py-3 px-4 md:px-20">
       <div class="flex space-x-8 transition-transform duration-500" :style="{ transform: `translateX(-${currentPageIndex * pageWidth}px)` }">
         <router-link
-          to="/pendaftaran/detail"
+          :to="`/pendaftaran/${item.slug}`"
           v-for="(item, index) in registrationData"
           :key="index"
-          href="/"
           class="relative bg-white rounded-lg shadow-lg w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 flex-shrink-0 transition hover:shadow-xl overflow-hidden block"
         >
           <img :src="item.image" alt="" class="absolute inset-0 w-full h-full object-cover" />
@@ -108,7 +107,7 @@
       </div>
       <div class="flex-1 space-y-1">
         <div v-for="(item, index) in beritaList" :key="index" class="bg-white p-2 flex gap-4 items-stretch cursor-pointer">
-          <router-link to="/berita/detail" class="flex gap-4 items-stretch w-full">
+          <router-link :to="`/berita/${item.slug}`" class="flex gap-4 items-stretch w-full">
             <img :src="item.image" alt="Thumbnail" class="w-[120px] object-cover" />
             <div class="flex-1">
               <h4 class="font-bold text-[var(--text-black)] mb-1 text-justify leading-[1.3rem] hover:text-yellow-400">
@@ -140,7 +139,7 @@
 
     <div :class="eventList.length >= 4 ? 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center px-4 md:px-20' : 'flex flex-wrap justify-center gap-6 px-4 md:px-20'">
       <div v-for="(item, index) in eventList" :key="index" class="bg-white overflow-hidden cursor-pointer w-full max-w-[300px]">
-        <router-link to="/event/detail" class="block">
+        <router-link :to="`/event/${item.slug}`" class="block">
           <div class="h-70 overflow-hidden">
             <img :src="item.image" :alt="item.title" class="w-full h-full object-cover" />
           </div>
@@ -230,51 +229,29 @@ const registrationData = [
     image: "/src/assets/img/utbk_snbt.png",
     title: "Pilihan Program Studi Politeknik Negeri Banyuwangi",
     description: "Berikut Program Studi yang dibuka di Jalur UTBK-SNBT 2025 di Politeknik Negeri Banyuwangi...",
-    link: "/snbp",
     date: "15 Januari 2025",
+    slug: "pilihan-program-studi-politeknik-negeri-banyuwangi",
   },
   {
     image: "/src/assets/img/kipk.png",
     title: "PENGUMUMAN HASIL SELEKSI MAHASISWA BARU",
     description: "Berdasarkan hasil seleksi Tim Pengelola Beasiswa Kartu Indonesia Pintar Kuliah (KIPK)...",
-    link: "/utbk-snbt",
     date: "9 Juli 2024",
+    slug: "pengumuman-hasil-seleksi-mahasiswa-baru",
   },
   {
     image: "/src/assets/img/presentasesnbt.png",
     title: "Pengumuman Jumlah Pendaftar SNBP 2025",
     description: "Politeknik Negeri Banyuwangi mengucapkan terima kasih kepada seluruh siswa yang telah...",
-    link: "/mandiri",
     date: "10 Maret 2025",
+    slug: "pengumuman-jumlah-pendaftar-snbp-2025",
   },
   {
     image: "/src/assets/img/utbk_snbt.png",
-    title: "PMDK",
+    title: "Pengumuman PMDK",
     description: "Penerimaan Mahasiswa Baru melalui Jalur PMDK diperuntukkan bagi siswa berprestasi dari sekolah mitra yang telah bekerjasama dengan Poliwangi.",
-    link: "/pmdk",
     date: "18 Maret 2025",
-  },
-  {
-    image: "/src/assets/img/utbk_snbt.png",
-
-    title: "KIP Kuliah",
-    description: "Kartu Indonesia Pintar (KIP) Kuliah memberikan bantuan biaya pendidikan bagi siswa dari keluarga kurang mampu untuk melanjutkan pendidikan ke jenjang perguruan tinggi.",
-    link: "/kip-kuliah",
-    date: "25 Maret 2025",
-  },
-  {
-    image: "/src/assets/img/utbk_snbt.png",
-    title: "Alih Jenjang",
-    description: "Program Alih Jenjang memungkinkan lulusan D3 atau sarjana terapan untuk melanjutkan pendidikan ke jenjang yang lebih tinggi dengan pengakuan beberapa mata kuliah yang telah diambil.",
-    link: "/alih-jenjang",
-    date: "1 April 2025",
-  },
-  {
-    image: "/src/assets/img/utbk_snbt.png",
-    title: "Program Internasional",
-    description: "Program Internasional memberikan kesempatan kepada mahasiswa untuk mengikuti program pembelajaran dan pertukaran mahasiswa dengan kampus-kampus mitra di luar negeri.",
-    link: "/internasional",
-    date: "10 April 2025",
+    slug: "pengumuman-pmdk",
   },
 ];
 
@@ -305,18 +282,21 @@ function nextPage() {
 const beritaList = [
   {
     image: "/src/assets/img/berita_2.png",
+    slug: "workshop-kewirausahaan-mahasiswa-poliwangi-untuk-mengembangkan-potensi-bisnis-mahasiswa",
     title: "Workshop Kewirausahaan Mahasiswa Poliwangi untuk Mengembangkan Potensi Bisnis Mahasiswa",
     date: "18 Juni 2025",
     description: "Mahasiswa Poliwangi mengikuti workshop intensif mengenai pengembangan bisnis, perencanaan usaha, serta strategi kehidupan yang keren.",
   },
   {
     image: "/src/assets/img/berita_3.png",
+    slug: "kunjungan-industri-mahasiswa-teknik-poliwangi-ke-pt-xyz-untuk-mendalami-proses-produksi",
     title: "Kunjungan Industri Mahasiswa Teknik Poliwangi ke PT XYZ untuk Mendalami Proses Produksi",
     date: "15 Juni 2025",
     description: "Mahasiswa jurusan Teknik melakukan kunjungan ke PT XYZ untuk mempelajari penerapan teknologi modern dalam lini produksi.",
   },
   {
     image: "/src/assets/img/berita_4.png",
+    slug: "sosialisasi-program-magang-industri-bagi-mahasiswa-poliwangi-sebelum-lulus",
     title: "Sosialisasi Program Magang Industri Bagi Mahasiswa Poliwangi Sebelum Lulus",
     date: "10 Juni 2025",
     description: "Poliwangi mengadakan sosialisasi program magang industri guna memberikan wawasan praktis dan meningkatkan kesiapan kerja.",
@@ -328,33 +308,15 @@ const eventList = [
   {
     image: "/src/assets/img/event_1.png",
     title: "Pendaftaran UTBK-SNBT 2025 Telah Dibuka!",
-    date: "11 -27 Maret",
+    date: "11 - 27 Maret",
+    slug: "pendaftaran-utbk-snbt-2025-telah-dibuka",
   },
   {
     image: "/src/assets/img/event_2.png",
     title: "Eksplorasi Pojok Statistik: Wadah Literasi Data untuk Semua Akademisi",
     date: "27 Feb",
+    slug: "eksplorasi-pojok-statistik-wadah-literasi-data-untuk-semua-akademisi",
   },
-  // {
-  //   image: "/src/assets/img/event_1.png",
-  //   title: "Job Fair Poliwangi 2025: Peluang Karir dari Perusahaan",
-  //   date: "21 Maret 2025",
-  // },
-  // {
-  //   image: "/src/assets/img/event_1.png",
-  //   title: "Workshop Desain Multimedia Interaktif untuk Konten Digital",
-  //   date: "21 Maret 2025",
-  // },
-  // {
-  //   image: "/src/assets/img/event_1.png",
-  //   title: "Pelatihan Softskill Mahasiswa: Leadership, Komunikasi",
-  //   date: "21 Maret 2025",
-  // },
-  // {
-  //   image: "/src/assets/img/event_1.png",
-  //   title: "Festival Budaya Poliwangi: Merajut Keberagaman dalam Kebersamaan",
-  //   date: "21 Maret 2025",
-  // },
 ];
 
 // Service
