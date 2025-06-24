@@ -222,22 +222,22 @@ import { ref, computed, onMounted, nextTick } from "vue";
 const registrationData = [
   {
     image: "/src/assets/img/utbk_snbt.png",
-    title: "Pilihan Program Studi Politeknik Negeri Banyuwangi Jalur UTBK-SNBT 2025",
+    title: "Pilihan Program Studi Politeknik Negeri Banyuwangi",
     description: "Berikut Program Studi yang dibuka di Jalur UTBK-SNBT 2025 di Politeknik Negeri Banyuwangi...",
     link: "/snbp",
     date: "15 Januari 2025",
   },
   {
     image: "/src/assets/img/kipk.png",
-    title: "PENGUMUMAN HASIL SELEKSI MAHASISWA BARU PENERIMA BEASISWA KIPK JALUR SNBT TAHUN 2024",
-    description: "Berdasarkan hasil seleksi Tim Pengelola Beasiswa Kartu Indonesia Pintar Kuliah (KIPK) Jalur Seleksi Nasional Berdasarkan Tes (SNBT) Politeknik Negeri Banyuwangi...",
+    title: "PENGUMUMAN HASIL SELEKSI MAHASISWA BARU",
+    description: "Berdasarkan hasil seleksi Tim Pengelola Beasiswa Kartu Indonesia Pintar Kuliah (KIPK)...",
     link: "/utbk-snbt",
     date: "9 Juli 2024",
   },
   {
     image: "/src/assets/img/presentasesnbt.png",
     title: "Pengumuman Jumlah Pendaftar SNBP 2025",
-    description: "Politeknik Negeri Banyuwangi mengucapkan terima kasih kepada seluruh siswa yang telah mendaftar melalui Jalur Seleksi Nasional Berdasarkan Prestasi (SNBP) 2025...",
+    description: "Politeknik Negeri Banyuwangi mengucapkan terima kasih kepada seluruh siswa yang telah...",
     link: "/mandiri",
     date: "10 Maret 2025",
   },
@@ -269,27 +269,6 @@ const registrationData = [
     description: "Program Internasional memberikan kesempatan kepada mahasiswa untuk mengikuti program pembelajaran dan pertukaran mahasiswa dengan kampus-kampus mitra di luar negeri.",
     link: "/internasional",
     date: "10 April 2025",
-  },
-  {
-    image: "/src/assets/img/utbk_snbt.png",
-    title: "Profesi",
-    description: "Program Profesi dirancang untuk menyiapkan lulusan yang memiliki sertifikasi keahlian profesional sesuai dengan standar industri dan dunia kerja.",
-    link: "/profesi",
-    date: "18 April 2025",
-  },
-  {
-    image: "/src/assets/img/utbk_snbt.png",
-    title: "Transfer Kredit",
-    description: "Program Transfer Kredit memungkinkan mahasiswa memindahkan sebagian mata kuliah dari perguruan tinggi asal ke Poliwangi, sehingga mempersingkat masa studi.",
-    link: "/transfer-kredit",
-    date: "25 April 2025",
-  },
-  {
-    image: "/src/assets/img/utbk_snbt.png",
-    title: "Beasiswa Lain",
-    description: "Berbagai jenis beasiswa tersedia di Poliwangi untuk mendukung mahasiswa berprestasi maupun yang membutuhkan bantuan biaya pendidikan.",
-    link: "/beasiswa-lain",
-    date: "1 Mei 2025",
   },
 ];
 
