@@ -149,19 +149,19 @@ const routes = [
     component: () => import("../components/pages/Berita.vue"),
   },
   {
-    path: "/berita/detail",
+    path: "/berita/:slug",
     name: "Detail Berita",
     component: () => import("../components/pages/BeritaDetail.vue"),
   },
   // Event
   {
-    path: "/event/detail",
+    path: "/event/:slug",
     name: "Detail Event",
     component: () => import("../components/pages/EventDetail.vue"),
   },
   // Pendaftaran
   {
-    path: "/pendaftaran/detail",
+    path: "/pendaftaran/:slug",
     name: "Detail Pendaftaran",
     component: () => import("../components/pages/PendaftaranDetail.vue"),
   },

@@ -98,10 +98,9 @@
         :style="{ transform: `translateX(-${currentPageIndex * pageWidth}px)` }"
       >
         <router-link
-          to="/pendaftaran/detail"
+          :to="`/pendaftaran/${item.slug}`"
           v-for="(item, index) in registrationData"
           :key="index"
-          href="/"
           class="relative bg-white rounded-lg shadow-lg w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 flex-shrink-0 transition hover:shadow-xl overflow-hidden block"
         >
           <img
@@ -431,6 +430,7 @@ const registrationData = [
       "Berikut Program Studi yang dibuka di Jalur UTBK-SNBT 2025 di Politeknik Negeri Banyuwangi...",
     link: "/snbp",
     date: "15 Januari 2025",
+    slug: "pilihan-program-studi-politeknik-negeri-banyuwangi",
   },
   {
     image: "/src/assets/img/kipk.png",
@@ -439,6 +439,7 @@ const registrationData = [
       "Berdasarkan hasil seleksi Tim Pengelola Beasiswa Kartu Indonesia Pintar Kuliah (KIPK)...",
     link: "/utbk-snbt",
     date: "9 Juli 2024",
+    slug: "pengumuman-hasil-seleksi-mahasiswa-baru",
   },
   {
     image: "/src/assets/img/presentasesnbt.png",
@@ -447,6 +448,7 @@ const registrationData = [
       "Politeknik Negeri Banyuwangi mengucapkan terima kasih kepada seluruh siswa yang telah...",
     link: "/mandiri",
     date: "10 Maret 2025",
+    slug: "pengumuman-jumlah-pendaftar-snbp-2025",
   },
   {
     image: "/src/assets/img/utbk_snbt.png",
@@ -541,34 +543,16 @@ const eventList = [
   {
     image: "/src/assets/img/event_1.png",
     title: "Pendaftaran UTBK-SNBT 2025 Telah Dibuka!",
-    date: "11 -27 Maret",
+    date: "11 - 27 Maret",
+    slug: "pendaftaran-utbk-snbt-2025-telah-dibuka",
   },
   {
     image: "/src/assets/img/event_2.png",
     title:
       "Eksplorasi Pojok Statistik: Wadah Literasi Data untuk Semua Akademisi",
     date: "27 Feb",
+    slug: "eksplorasi-pojok-statistik-wadah-literasi-data-untuk-semua-akademisi",
   },
-  // {
-  //   image: "/src/assets/img/event_1.png",
-  //   title: "Job Fair Poliwangi 2025: Peluang Karir dari Perusahaan",
-  //   date: "21 Maret 2025",
-  // },
-  // {
-  //   image: "/src/assets/img/event_1.png",
-  //   title: "Workshop Desain Multimedia Interaktif untuk Konten Digital",
-  //   date: "21 Maret 2025",
-  // },
-  // {
-  //   image: "/src/assets/img/event_1.png",
-  //   title: "Pelatihan Softskill Mahasiswa: Leadership, Komunikasi",
-  //   date: "21 Maret 2025",
-  // },
-  // {
-  //   image: "/src/assets/img/event_1.png",
-  //   title: "Festival Budaya Poliwangi: Merajut Keberagaman dalam Kebersamaan",
-  //   date: "21 Maret 2025",
-  // },
 ];
 
 // Service
