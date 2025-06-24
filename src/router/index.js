@@ -28,6 +28,11 @@ const routes = [
     component: () => import("../components/pages/Sakip.vue"),
   },
   {
+    path: "/laporan-keuangan",
+    name: "Laporan Keuangan",
+    component: () => import("../components/pages/LaporanKeuangan.vue"),
+  },
+  {
     path: "/about",
     name: "About",
     component: () => import("../components/pages/About.vue"),
@@ -104,6 +109,12 @@ const routes = [
     path: "/mandiri",
     name: "Mandiri",
     component: () => import("../components/pages/Mandiri.vue"),
+  },
+  //Riset&Pengabdian
+  {
+    path: "/sumber-pendanaan",
+    name: "Sumber Pendanaan",
+    component: () => import("../components/pages/SumberPendanaan.vue"),
   },
   // Layanan
   {

@@ -1,23 +1,46 @@
 <template>
   <div class="px-6 md:px-20 py-10 space-y-10">
     <div class="text-sm text-[var(--text-gray)] font-[var(--font-albert)]">
-      <router-link to="/" class="hover:underline hover:text-[var(--accent-blue)]">Home</router-link>
+      <router-link
+        to="/"
+        class="hover:underline hover:text-[var(--accent-blue)]"
+        >Home</router-link
+      >
       <span class="mx-1 text-[var(--accent-yellow)]">›</span>
       <span class="text-[var(--text-black)] font-medium">Layanan Publik</span>
     </div>
-    <div class="relative w-full max-w-[1364px] h-[301px] mx-auto overflow-hidden">
-      <img :src="banner" alt="Banner" class="object-cover w-full h-full" />
-      <div class="absolute inset-0 bg-[var(--blue-dark)]/50"></div>
-      <div class="absolute inset-0 flex flex-col items-start justify-center ps-10" style="font-family: var(--font-lora)">
-        <h1 class="text-3xl md:text-5xl font-bold text-white text-center">Standar Pelayanan Publik</h1>
+    <div
+      class="relative w-full max-w-[1364px] h-[301px] mx-auto overflow-hidden"
+    >
+      <img
+        :src="banner"
+        alt="Banner Riset & Pendanaan"
+        class="object-cover w-full h-full"
+      />
+      <div class="absolute inset-0 bg-[#004878] opacity-70"></div>
+      <div class="absolute inset-0 flex items-center pl-10">
+        <h1
+          class="text-3xl md:text-5xl font-bold text-white"
+          style="font-family: var(--font-lora)"
+        >
+          Standar Pelayanan Publik
+        </h1>
       </div>
     </div>
     <section class="pelayanan">
-      <div class="text-justify leading-relaxed space-y-6" style="font-family: var(--font-albert)">
+      <div
+        class="text-justify leading-relaxed space-y-6"
+        style="font-family: var(--font-albert)"
+      >
         <div class="mx-auto">
           <div class="overflow-x-auto">
-            <table class="w-full text-sm text-left bg-[var(--bg-grey)] shadow rounded-lg">
-              <thead class="bg-[var(--blue-dark)] text-white" style="font-family: var(--font-lora)">
+            <table
+              class="w-full text-sm text-left bg-[var(--bg-grey)] shadow rounded-lg"
+            >
+              <thead
+                class="bg-[var(--blue-dark)] text-white"
+                style="font-family: var(--font-lora)"
+              >
                 <tr>
                   <th class="px-4 py-3 w-12 text-cente rounded-tl-lg">No.</th>
                   <th class="px-4 py-3">Nama Berkas</th>
@@ -26,10 +49,20 @@
               </thead>
               <tbody class="divide-y divide-gray-200 font-semibold">
                 <tr v-for="item in layanan" :key="item.no">
-                  <td class="px-4 py-3 border-b border-[var(--blue-dark)] text-center">{{ item.no }}.</td>
-                  <td class="px-4 py-3 border-b border-[var(--blue-dark)]">{{ item.nama }}</td>
+                  <td
+                    class="px-4 py-3 border-b border-[var(--blue-dark)] text-center"
+                  >
+                    {{ item.no }}.
+                  </td>
                   <td class="px-4 py-3 border-b border-[var(--blue-dark)]">
-                    <button class="bg-[var(--blue-dark)] hover:bg-blue-600 text-white px-4 py-1 rounded flex items-center justify-center w-full"><i class="fa-solid fa-file-arrow-down me-2"></i>Unduh</button>
+                    {{ item.nama }}
+                  </td>
+                  <td class="px-4 py-3 border-b border-[var(--blue-dark)]">
+                    <button
+                      class="bg-[var(--blue-dark)] hover:bg-blue-600 text-white px-4 py-1 rounded flex items-center justify-center w-full"
+                    >
+                      <i class="fa-solid fa-file-arrow-down me-2"></i>Unduh
+                    </button>
                   </td>
                 </tr>
               </tbody>
@@ -53,9 +86,15 @@ const layanan = [
   { no: 4, nama: "Pelayanan–Penurunan UKT" },
   { no: 5, nama: "Pelayanan–Surat Keterangan Masih Kuliah" },
   { no: 6, nama: "Pelayanan–Aktivasi Mahasiswa Setelah Cuti" },
-  { no: 7, nama: "Pelayanan–Keikutsertaan UTS UAS bagi mendapat surat peringatan" },
+  {
+    no: 7,
+    nama: "Pelayanan–Keikutsertaan UTS UAS bagi mendapat surat peringatan",
+  },
   { no: 8, nama: "Pelayanan–Pelaksanaan UTS UAS" },
-  { no: 9, nama: "Pelayanan–Keikutsertaan UTS UAS bagi mendapat surat peringatan" },
+  {
+    no: 9,
+    nama: "Pelayanan–Keikutsertaan UTS UAS bagi mendapat surat peringatan",
+  },
   { no: 10, nama: "Pelayanan–Yudisium2" },
   { no: 11, nama: "Pelayanan–Legalisir Ijasah dan Transkrip Nilai" },
   { no: 12, nama: "Pelayanan–Wisuda" },
@@ -69,5 +108,5 @@ const layanan = [
   { no: 20, nama: "Pelayanan–Pelaporan Pertanggungjawaban Kegiatan Mahasiswa" },
 ];
 
-import banner from "@/assets/img/banner_home.jpg";
+import banner from "@/assets/img/bannerlayanan.png";
 </script>
