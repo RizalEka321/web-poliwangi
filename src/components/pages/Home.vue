@@ -46,7 +46,13 @@
     </div>
     <div ref="cardContainer" class="overflow-x-hidden py-3 px-4 md:px-20">
       <div class="flex space-x-8 transition-transform duration-500" :style="{ transform: `translateX(-${currentPageIndex * pageWidth}px)` }">
-        <a v-for="(item, index) in registrationData" :key="index" href="/" class="relative bg-white rounded-lg shadow-lg w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 flex-shrink-0 transition hover:shadow-xl overflow-hidden block">
+        <router-link
+          to="/pendaftaran/detail"
+          v-for="(item, index) in registrationData"
+          :key="index"
+          href="/"
+          class="relative bg-white rounded-lg shadow-lg w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 flex-shrink-0 transition hover:shadow-xl overflow-hidden block"
+        >
           <img :src="item.image" alt="" class="absolute inset-0 w-full h-full object-cover" />
           <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
           <div class="relative z-10 p-4 text-white flex flex-col justify-end h-full text-justify">
@@ -58,7 +64,7 @@
               <span class="font-semibold hover:text-yellow-400">Read More <i class="fa-solid fa-arrow-right ms-2"></i></span>
             </div>
           </div>
-        </a>
+        </router-link>
       </div>
     </div>
     <div class="flex justify-center items-center mt-10 space-x-2">
@@ -87,7 +93,7 @@
     </div>
     <div class="px-4 mb-5 md:px-20 flex flex-col md:flex-row gap-10">
       <div class="flex-1">
-        <div class="bg-white overflow-hidden cursor-pointer">
+        <router-link to="/berita/detail" class="bg-white overflow-hidden cursor-pointer">
           <img src="/src/assets/img/berita_1.png" alt="Berita Utama" class="w-full h-75 object-cover" />
           <div class="py-3">
             <h3 class="text-xl font-bold text-[var(--text-black)] mb-2 text-justify hover:text-yellow-400">Sosialisasi Program Magang Industri Bagi Mahasiswa Poliwangi Sebelum Lulus ke Dunia Kerja</h3>
@@ -98,11 +104,11 @@
             </div>
             <p class="text-[var(--text-black)] mb-4 text-justify">Ringkasan singkat dari berita utama yang sedang tampil di sini. Konten berita utama biasanya berisi highlight terkini dari Poliwangi.</p>
           </div>
-        </div>
+        </router-link>
       </div>
       <div class="flex-1 space-y-1">
         <div v-for="(item, index) in beritaList" :key="index" class="bg-white p-2 flex gap-4 items-stretch cursor-pointer">
-          <a href="/" class="flex gap-4 items-stretch w-full">
+          <router-link to="/berita/detail" class="flex gap-4 items-stretch w-full">
             <img :src="item.image" alt="Thumbnail" class="w-[120px] object-cover" />
             <div class="flex-1">
               <h4 class="font-bold text-[var(--text-black)] mb-1 text-justify leading-[1.3rem] hover:text-yellow-400">
@@ -117,7 +123,7 @@
                 {{ item.description }}
               </p>
             </div>
-          </a>
+          </router-link>
         </div>
         <div class="flex justify-end">
           <router-link to="/berita" class="font-semibold hover:text-yellow-400">Berita Lainnya<i class="fa-solid fa-circle-right ms-2"></i></router-link>
@@ -134,7 +140,7 @@
 
     <div :class="eventList.length >= 4 ? 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center px-4 md:px-20' : 'flex flex-wrap justify-center gap-6 px-4 md:px-20'">
       <div v-for="(item, index) in eventList" :key="index" class="bg-white overflow-hidden cursor-pointer w-full max-w-[300px]">
-        <a href="/" class="block">
+        <router-link to="/event/detail" class="block">
           <div class="h-70 overflow-hidden">
             <img :src="item.image" :alt="item.title" class="w-full h-full object-cover" />
           </div>
@@ -148,7 +154,7 @@
               {{ item.title }}
             </h3>
           </div>
-        </a>
+        </router-link>
       </div>
     </div>
   </section>

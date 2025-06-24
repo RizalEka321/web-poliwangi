@@ -137,6 +137,29 @@ const routes = [
     name: "Pengaduan",
     component: () => import("../components/pages/Pengaduan.vue"),
   },
+  // Berita
+  {
+    path: "/berita",
+    name: "Berita",
+    component: () => import("../components/pages/Berita.vue"),
+  },
+  {
+    path: "/berita/detail",
+    name: "Detail Berita",
+    component: () => import("../components/pages/BeritaDetail.vue"),
+  },
+  // Event
+  {
+    path: "/event/detail",
+    name: "Detail Event",
+    component: () => import("../components/pages/EventDetail.vue"),
+  },
+  // Pendaftaran
+  {
+    path: "/pendaftaran/detail",
+    name: "Detail Pendaftaran",
+    component: () => import("../components/pages/PendaftaranDetail.vue"),
+  },
 ];
 
 const router = createRouter({
