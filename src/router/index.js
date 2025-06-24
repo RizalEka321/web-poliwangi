@@ -96,7 +96,7 @@ const routes = [
     component: () => import("../components/pages/SNBP.vue"),
   },
   {
-    path: "/utbk",
+    path: "/utbk-snbt",
     name: "UTBK",
     component: () => import("../components/pages/UTBK.vue"),
   },

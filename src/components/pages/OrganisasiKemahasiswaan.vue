@@ -102,84 +102,88 @@
       >
         Program Kerja ORMAWA 2025
       </h2>
-      <!-- Search -->
-      <div class="flex justify-between items-center mb-4">
-        <div></div>
-        <!-- spacer / bisa diisi filter lain -->
-        <input
-          v-model="search"
-          type="text"
-          placeholder="Search"
-          class="border border-gray-300 rounded px-3 py-2 w-full max-w-xs"
-        />
-      </div>
-
-      <!-- Table -->
       <div class="overflow-x-auto">
-        <table class="min-w-full border border-gray-300 text-sm">
+        <div
+          class="flex justify-end bg-[var(--blue-dark)] border-b border-gray-300 p-5 rounded-t-lg"
+        >
+          <div class="bg-white">
+            <input
+              v-model="search"
+              type="text"
+              placeholder="Search"
+              class="border border-gray-300 rounded px-3 py-2 w-64 h-9"
+            />
+          </div>
+        </div>
+
+        <table
+          class="w-full text-sm text-left shadow rounded-lg bg-[var(--bg-grey)]"
+        >
           <thead
             class="bg-[var(--blue-dark)] text-white"
             style="font-family: var(--font-lora)"
           >
             <tr>
-              <th class="border px-4 py-2 text-left">No</th>
-              <th class="border px-4 py-2 text-left">Nama Kegiatan</th>
-              <th class="border px-4 py-2 text-left">Waktu Pelaksanaan</th>
-              <th class="border px-4 py-2 text-left">
-                PIC Organisasi Kemahasiswaan
-              </th>
+              <th class="px-4 py-3 w-12">No.</th>
+              <th class="px-4 py-3">Nama Kegiatan</th>
+              <th class="px-4 py-3">Waktu Pelaksanaan</th>
+              <th class="px-4 py-3">PIC Organisasi Kemahasiswaan</th>
             </tr>
           </thead>
-          <tbody class="bg-white text-gray-800">
-            <tr
-              v-for="(item, index) in paginatedData"
-              :key="index"
-              class="border-b border-gray-300 hover:bg-gray-50"
-            >
-              <td class="p-3 text-center">
-                {{ index + 1 + (currentPage - 1) * itemsPerPage }}
+          <tbody class="divide-y divide-gray-200">
+            <tr v-for="(item, index) in paginatedData" :key="index">
+              <td class="px-4 py-3 border-b border-[var(--blue-dark)]">
+                {{ (currentPage - 1) * itemsPerPage + index + 1 }}.
               </td>
-              <td class="p-3 text-left font-medium text-gray-900">
+              <td class="px-4 py-3 border-b border-[var(--blue-dark)]">
                 {{ item.nama }}
               </td>
-              <td class="p-3 text-left">{{ item.waktu }}</td>
-              <td class="p-3 text-left">{{ item.pic }}</td>
+              <td class="px-4 py-3 border-b border-[var(--blue-dark)]">
+                {{ item.waktu }}
+              </td>
+              <td class="px-4 py-3 border-b border-[var(--blue-dark)]">
+                {{ item.pic }}
+              </td>
             </tr>
           </tbody>
+          <tfoot class="bg-[var(--blue-dark)] text-[var(--text-black)]">
+            <tr>
+              <td colspan="4" class="rounded-b-lg">
+                <div class="flex justify-center items-center space-x-1 p-4">
+                  <button
+                    :disabled="currentPage === 1"
+                    @click="currentPage--"
+                    class="w-8 h-8 bg-[var(--bg-grey)] rounded-xl shadow hover:bg-[var(--accent-blue)] hover:text-white disabled:opacity-50 transition duration-300 ease-in-out"
+                  >
+                    <i class="fa-solid fa-chevron-left"></i>
+                  </button>
+
+                  <button
+                    v-for="page in totalPages"
+                    :key="page"
+                    @click="currentPage = page"
+                    :class="[
+                      'w-8 h-8 rounded-xl shadow transition duration-300 ease-in-out',
+                      currentPage === page
+                        ? 'bg-blue-500 text-white'
+                        : 'bg-white hover:bg-[var(--accent-blue)] hover:text-white',
+                    ]"
+                  >
+                    {{ page }}
+                  </button>
+
+                  <button
+                    :disabled="currentPage === totalPages"
+                    @click="currentPage++"
+                    class="w-8 h-8 bg-[var(--bg-grey)] rounded-xl shadow hover:bg-[var(--accent-blue)] hover:text-white disabled:opacity-50 transition duration-300 ease-in-out"
+                  >
+                    <i class="fa-solid fa-chevron-right"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tfoot>
         </table>
-      </div>
-      <div class="flex justify-between items-center mt-4">
-        <button
-          class="px-3 py-1 bg-gray-200 text-gray-700 rounded hover:bg-gray-300"
-          @click="prevPage"
-          :disabled="currentPage === 1"
-        >
-          « Prev
-        </button>
-
-        <div class="space-x-2">
-          <button
-            v-for="page in totalPages"
-            :key="page"
-            @click="goToPage(page)"
-            :class="[
-              'px-3 py-1 rounded',
-              currentPage === page
-                ? 'bg-blue-600 text-white'
-                : 'bg-gray-200 text-gray-700 hover:bg-gray-300',
-            ]"
-          >
-            {{ page }}
-          </button>
-        </div>
-
-        <button
-          class="px-3 py-1 bg-gray-200 text-gray-700 rounded hover:bg-gray-300"
-          @click="nextPage"
-          :disabled="currentPage === totalPages"
-        >
-          Next »
-        </button>
       </div>
     </section>
   </div>
