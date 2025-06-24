@@ -13,7 +13,7 @@
         <h1 class="text-3xl font-bold text-black">{{ event.title }}</h1>
         <p class="text-sm text-gray-500 flex items-center flex-wrap gap-3">
           <span class="flex items-center"><i class="fa-solid fa-calendar-days me-2"></i> {{ event.date }}</span>
-          <span class="flex items-center"><i class="fa-solid fa-tags me-2"></i> Event</span>
+          <span class="flex items-center"><i class="fa-solid fa-tags me-2"></i> Pendaftaran</span>
         </p>
       </div>
 
