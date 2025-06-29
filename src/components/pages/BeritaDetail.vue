@@ -16,10 +16,6 @@
         class="hover:underline hover:text-[var(--accent-blue)]"
         >Berita</router-link
       >
-      <span class="text-[var(--accent-yellow)]">›</span>
-      <span class="font-medium text-[var(--text-black)]">{{
-        berita.title
-      }}</span>
     </div>
 
     <!-- Konten Utama -->

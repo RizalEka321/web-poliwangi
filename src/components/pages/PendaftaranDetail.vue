@@ -1,51 +1,100 @@
 <template>
-  <div class="px-6 md:px-20 py-10 space-y-10" v-if="event">
-    <div class="text-sm text-gray-500">
-      <router-link to="/" class="hover:underline hover:text-blue-600"
+  <div
+    v-if="event"
+    class="px-6 md:px-20 py-10 space-y-10 font-[var(--font-albert)]"
+  >
+    <div
+      class="text-sm text-[var(--text-gray)] flex items-center gap-1 font-[var(--font-albert)]"
+    >
+      <router-link
+        to="/"
+        class="hover:underline hover:text-[var(--accent-blue)]"
         >Home</router-link
       >
-      <span class="mx-1 text-yellow-500">›</span>
-      <a class="">Pendaftaran</a>
-      <span class="mx-1 text-yellow-500">›</span>
-      <span class="font-medium text-black">{{ event.title }}</span>
+      <span class="text-[var(--accent-yellow)]">›</span>
+      <span class="text-[var(--text-black)] font-medium">
+        Berita Pendaftaran</span
+      >
     </div>
 
-    <section class="event">
-      <div class="mb-5 space-y-2">
-        <div class="w-full my-6 flex justify-center">
+    <div class="flex flex-col lg:flex-row gap-10">
+      <section class="flex-1">
+        <h1
+          class="text-2xl md:text-3xl font-bold text-[var(--blue-dark)] mb-2 font-[var(--font-lora)]"
+        >
+          {{ event.title }}
+        </h1>
+        <div
+          class="text-sm text-[var(--text-gray)] flex items-center flex-wrap gap-4 mb-6 font-[var(--font-albert)]"
+        >
+          <span class="flex items-center gap-2">
+            <i
+              class="fa-solid fa-calendar-days text-[var(--accent-yellow)]"
+            ></i>
+            {{ event.date }}
+          </span>
+          <span class="flex items-center gap-2">
+            <i class="fa-solid fa-tags text-[var(--accent-yellow)]"></i>
+            Pendaftaran
+          </span>
+        </div>
+
+        <!-- Gambar Event -->
+        <div class="w-full mb-6">
           <img
             :src="event.image"
-            class="object-cover rounded-lg shadow"
+            class="w-full max-w-xl mx-auto object-cover rounded-lg shadow"
             alt="Foto Event"
           />
         </div>
-        <h1 class="text-3xl font-bold text-black">{{ event.title }}</h1>
-        <p class="text-sm text-gray-500 flex items-center flex-wrap gap-3">
-          <span class="flex items-center"
-            ><i class="fa-solid fa-calendar-days me-2"></i>
-            {{ event.date }}</span
-          >
-          <span class="flex items-center"
-            ><i class="fa-solid fa-tags me-2"></i> Pendaftaran</span
-          >
-        </p>
-      </div>
 
-      <div v-html="event.content"></div>
-    </section>
+        <!-- Isi Konten -->
+        <div
+          class="text-justify text-[var(--text-gray)] leading-relaxed space-y-4 max-w-4xl mx-auto font-[var(--font-albert)]"
+          v-html="event.content"
+        ></div>
+      </section>
+
+      <!-- Pendaftaran Terbaru -->
+      <aside class="w-full lg:w-[30%]">
+        <h2
+          class="text-lg font-semibold border-l-4 border-[var(--accent-yellow)] pl-2 mb-4 text-[var(--blue-dark)] font-[var(--font-lora)]"
+        >
+          Berita Pendaftaran Terbaru
+        </h2>
+        <ul class="space-y-5 text-[var(--blue-dark)]">
+          <li
+            v-for="item in recentRegistration"
+            :key="item.slug"
+            class="border-b border-[var(--blue-medium)] pb-3"
+          >
+            <router-link
+              :to="`/pendaftaran/${item.slug}`"
+              class="hover:underline hover:text-[var(--accent-yellow)] font-semibold"
+            >
+              {{ item.title }}
+            </router-link>
+            <p class="text-xs text-[var(--text-gray)] mt-1">{{ item.date }}</p>
+          </li>
+        </ul>
+      </aside>
+    </div>
   </div>
 
-  <div v-else class="px-6 py-10 text-center text-gray-500">
-    Event tidak ditemukan.
+  <!-- Jika Tidak Ada Event -->
+  <div v-else class="px-6 md:px-20 py-10">
+    <p class="text-center text-red-500 font-semibold font-[var(--font-albert)]">
+      Berita pendaftaran tidak ditemukan
+    </p>
   </div>
 </template>
 
 <script setup>
 import { useRoute } from "vue-router";
-import { ref } from "vue";
+import { ref, watch, computed } from "vue";
 
 const route = useRoute();
-const slug = route.params.slug;
+const slug = ref(route.params.slug);
 
 const registrationData = [
   {
@@ -134,5 +183,20 @@ const registrationData = [
   },
 ];
 
-const event = ref(registrationData.find((e) => e.slug === slug));
+const event = ref(registrationData.find((e) => e.slug === slug.value));
+
+const recentRegistration = computed(() => {
+  return registrationData
+    .filter((item) => item.slug !== slug.value)
+    .sort((a, b) => new Date(b.date) - new Date(a.date))
+    .slice(0, 4);
+});
+
+watch(
+  () => route.params.slug,
+  (newSlug) => {
+    slug.value = newSlug;
+    event.value = registrationData.find((e) => e.slug === newSlug);
+  }
+);
 </script>

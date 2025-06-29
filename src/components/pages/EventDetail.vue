@@ -1,85 +1,113 @@
 <template>
-  <div class="px-6 md:px-20 py-10 space-y-10" v-if="event">
-    <div class="text-sm text-gray-500">
-      <router-link to="/" class="hover:underline hover:text-blue-600"
+  <div
+    v-if="event"
+    class="px-6 md:px-20 py-10 space-y-10 font-[var(--font-albert)]"
+  >
+    <!-- Breadcrumb -->
+    <div class="text-sm text-[var(--text-gray)] flex items-center gap-1">
+      <router-link
+        to="/"
+        class="hover:underline hover:text-[var(--accent-blue)]"
         >Home</router-link
       >
-      <span class="mx-1 text-yellow-500">›</span>
-      <a>Event</a>
-      <span class="mx-1 text-yellow-500">›</span>
-      <span class="font-medium text-black">{{ event.title }}</span>
+      <span class="text-[var(--accent-yellow)]">›</span>
+      <span class="text-[var(--text-black)] font-medium">Event</span>
     </div>
 
-    <section class="event">
-      <div class="mb-5 space-y-2">
-        <h1 class="text-3xl font-bold text-black">{{ event.title }}</h1>
-        <p class="text-sm text-gray-500 flex items-center flex-wrap gap-3">
-          <span class="flex items-center"
-            ><i class="fa-solid fa-calendar-days me-2"></i>
-            {{ event.date }}</span
-          >
-          <span class="flex items-center"
-            ><i class="fa-solid fa-tags me-2"></i> Event</span
-          >
-        </p>
-      </div>
+    <!-- Konten Utama -->
+    <div class="flex flex-col lg:flex-row gap-10">
+      <!-- Event Detail -->
+      <section class="flex-1">
+        <h1 class="text-2xl md:text-3xl font-bold text-[var(--blue-dark)] mb-2">
+          {{ event.title }}
+        </h1>
+        <div
+          class="text-sm text-[var(--text-gray)] flex items-center flex-wrap gap-4 mb-6"
+        >
+          <span class="flex items-center gap-2">
+            <i
+              class="fa-solid fa-calendar-days text-[var(--accent-yellow)]"
+            ></i>
+            {{ event.date }}
+          </span>
+          <span class="flex items-center gap-2">
+            <i class="fa-solid fa-tags text-[var(--accent-yellow)]"></i>
+            Event
+          </span>
+        </div>
 
-      <div v-html="event.content"></div>
-    </section>
+        <!-- Gambar Event -->
+        <div class="w-full mb-6">
+          <img
+            :src="event.imageDetail"
+            class="w-full max-w-xl mx-auto object-cover rounded-lg shadow"
+            :alt="event.title"
+          />
+          <p class="text-sm text-center text-[var(--text-gray)] mt-2">
+            {{ event.caption }}
+          </p>
+        </div>
+
+        <!-- Isi Konten -->
+        <div
+          class="text-justify text-[var(--text-gray)] leading-relaxed space-y-4 max-w-4xl mx-auto"
+          v-html="event.content"
+        ></div>
+      </section>
+
+      <!-- Event Terbaru -->
+      <aside class="w-full lg:w-[30%]">
+        <h2
+          class="text-lg font-bold border-l-4 border-[var(--accent-yellow)] pl-2 mb-4 text-[var(--blue-dark)]"
+        >
+          Event Terbaru
+        </h2>
+        <ul class="space-y-5 text-[var(--blue-dark)]">
+          <li
+            v-for="item in eventLainnya"
+            :key="item.slug"
+            class="border-b border-[var(--blue-medium)] pb-3"
+          >
+            <router-link
+              :to="`/event/${item.slug}`"
+              class="hover:underline hover:text-[var(--accent-yellow)] font-semibold"
+            >
+              {{ item.title }}
+            </router-link>
+            <p class="text-xs text-[var(--text-gray)] mt-1">{{ item.date }}</p>
+          </li>
+        </ul>
+      </aside>
+    </div>
   </div>
 
-  <div v-else class="px-6 py-10 text-center text-gray-500">
-    Event tidak ditemukan.
+  <!-- Jika Tidak Ada Event -->
+  <div v-else class="px-6 md:px-20 py-10">
+    <p class="text-center text-red-500 font-semibold">Event tidak ditemukan</p>
   </div>
 </template>
 
 <script setup>
-import { useRoute } from "vue-router";
-import { ref } from "vue";
+import { useRoute, useRouter } from "vue-router";
+import { ref, computed, watch } from "vue";
 
 const route = useRoute();
-const slug = route.params.slug;
-
+const router = useRouter();
+const slug = ref(route.params.slug);
 const eventList = [
   {
     image: "/src/assets/img/event_1.png",
-    title: "Pendaftaran UTBK-SNBT 2025 Telah Dibuka!",
-    date: "11 - 27 Maret",
-    slug: "pendaftaran-utbk-snbt-2025-telah-dibuka",
-    content: `
-    <div class="text-justify text-gray-700 leading-relaxed space-y-4">
-      <p>
-        Pendaftaran UTBK-SNBT 2025 resmi dibuka dengan antusiasme tinggi dari seluruh calon mahasiswa di Indonesia.
-      </p>
-
-      <p>
-        Politeknik Negeri Banyuwangi (Poliwangi) sebagai salah satu pusat UTBK telah menyiapkan fasilitas terbaik untuk mendukung pelaksanaan ujian sesuai standar nasional.
-      </p>
-
-      <p>
-        Calon peserta diimbau untuk mempersiapkan seluruh persyaratan administrasi, termasuk pengisian biodata, dokumen akademik, serta mengikuti prosedur registrasi daring yang telah ditetapkan oleh panitia pusat.
-      </p>
-
-      <p>
-        Bagi peserta yang membutuhkan bimbingan, Poliwangi juga menyediakan layanan pusat informasi UTBK yang siap membantu selama proses pendaftaran berlangsung.
-      </p>
-
-      <div class="w-full my-6 flex justify-center">
-        <div class="max-w-md w-full">
-          <img src="/src/assets/img/event_1.png" alt="Pendaftaran UTBK-SNBT 2025" class="rounded-lg shadow w-full object-cover" />
-          <p class="text-sm text-center text-gray-500 mt-2">Suasana pendaftaran UTBK-SNBT di Poliwangi</p>
-        </div>
-      </div>
-
-      <p>
-        Pendaftaran akan berlangsung hingga tanggal 27 Maret, sementara pelaksanaan tes UTBK direncanakan mulai bulan Mei mendatang. Seluruh hasil ujian akan digunakan sebagai dasar seleksi nasional perguruan tinggi negeri.
-      </p>
-
-      <p>
-        Poliwangi mengajak seluruh calon mahasiswa untuk memanfaatkan kesempatan ini dengan sebaik-baiknya, serta menjaga kondisi fisik dan mental dalam menghadapi seleksi penting ini.
-      </p>
-    </div>
-  `,
+    title:
+      "Pendaftaran Jalur Seleksi Mandiri Politeknik Negeri Banyuwangi Tahun 2025 Telah Dibuka!",
+    date: "13 June 2025",
+    slug: "pendaftaran-mandiri-2025-telah-dibuka",
+    content: `<p>Halo #SobatBranggo, kemarin banyak yang bertanya kapan Jalur Mandiri Poliwangi dibuka. Nah, sekarang Jalur Mandiri Poliwangi telah dibuka! Untuk kamu yang masih belum mendapatkan kesempatan menjadi bagian dari Poliwangi yuk segera daftarkan dirimu sekarang juga. Informasi lebih lanjut dapat dilihat di flayer yaaa!</p>
+    <p>Untuk Link Pendatarannya dapat kamu akses pada laman berikut:
+<br> https://pmb.poliwangi.ac.id/ atau Scan QR Code diatas</p>
+<p>Jika ada pertanyaan kamu dapat menghubungi Helpdesk Poliwangi di email:
+<br> pmb@poliwangi.ac.id dan akpsi@poliwangi.ac.id</p>
+<p>Serta Call Center Poliwangi:
+<br> 0823 3274 8132 – WhatsApp Only</p>`,
     imageDetail: "/src/assets/img/event_1.png",
     caption: "Suasana pendaftaran UTBK-SNBT di Poliwangi",
   },
@@ -89,52 +117,23 @@ const eventList = [
       "Eksplorasi Pojok Statistik: Wadah Literasi Data untuk Semua Akademisi",
     date: "27 Februari",
     slug: "eksplorasi-pojok-statistik-wadah-literasi-data-untuk-semua-akademisi",
-    content: `
-      <div class="text-justify text-gray-700 leading-relaxed space-y-4">
-        <p>
-          Politeknik Negeri Banyuwangi (Poliwangi) kembali menghadirkan inovasi dalam penguatan literasi data di lingkungan akademik melalui program bertajuk <strong>"Eksplorasi Pojok Statistik"</strong>. Program ini menjadi wadah strategis
-          bagi seluruh sivitas akademika untuk memahami, mengeksplorasi, serta memanfaatkan data statistik secara tepat dan efektif.
-        </p>
-
-        <p>
-          Kegiatan ini diinisiasi sebagai bentuk dukungan Poliwangi terhadap pentingnya penguasaan data di era digital. Melalui Pojok Statistik, mahasiswa, dosen, maupun tenaga kependidikan dapat memperoleh akses langsung ke berbagai sumber
-          data resmi, seperti data dari Badan Pusat Statistik (BPS), serta dilengkapi dengan bimbingan terkait cara pengolahan dan pemanfaatannya dalam riset maupun pengambilan keputusan.
-        </p>
-
-        <p>
-          Selama kegiatan berlangsung, peserta mendapatkan pembekalan materi mengenai teknik analisis statistik, visualisasi data, hingga penerapan software statistik modern. Narasumber yang dihadirkan berasal dari kalangan profesional,
-          termasuk praktisi BPS dan akademisi yang berpengalaman dalam bidang pengolahan data.
-        </p>
-
-        <div class="w-full my-6 flex justify-center">
-          <div class="max-w-md w-full">
-            <img src="/src/assets/img/event_2.png" alt="Eksplorasi Pojok Statistik" class="rounded-lg shadow w-full object-cover" />
-            <p class="text-sm text-center text-gray-500 mt-2">Suasana kegiatan Eksplorasi Pojok Statistik di Poliwangi</p>
-          </div>
-        </div>
-
-        <p>
-          Direktur Poliwangi menyampaikan bahwa penguatan literasi statistik merupakan langkah penting dalam meningkatkan kualitas akademik kampus. “Kemampuan membaca, memahami, dan mengolah data menjadi salah satu kompetensi esensial di
-          era saat ini. Melalui Pojok Statistik ini, kami ingin memberikan ruang belajar yang aplikatif dan bermanfaat bagi seluruh civitas,” ujar beliau.
-        </p>
-
-        <p>Selain sesi pelatihan, program ini juga membuka layanan konsultasi data yang dapat dimanfaatkan oleh mahasiswa dalam penyusunan skripsi, penelitian dosen, hingga pengembangan program pengabdian masyarakat berbasis data.</p>
-
-        <p>
-          Ke depan, Poliwangi berencana memperluas kolaborasi dengan berbagai instansi pemerintah dan swasta dalam pengembangan sistem literasi data kampus berbasis digital. Diharapkan, kegiatan semacam ini tidak hanya memperkaya wawasan
-          akademik, tetapi juga mempersiapkan lulusan yang adaptif terhadap perkembangan teknologi dan kebutuhan industri berbasis data.
-        </p>
-
-        <p>
-          Eksplorasi Pojok Statistik ini menjadi wujud komitmen Poliwangi dalam menciptakan ekosistem pendidikan yang responsif terhadap perkembangan ilmu pengetahuan, sekaligus mendorong budaya literasi data sebagai bagian integral dalam
-          proses pembelajaran.
-        </p>
-      </div>
-    `,
+    content: `<p>Politeknik Negeri Banyuwangi mengadakan kegiatan "Eksplorasi Pojok Statistik: Wadah Literasi Data untuk Semua Akademisi" sebagai bentuk sosialisasi pemanfaatan Pojok Statistik sebagai sumber informasi dan pencarian data statistik. Kegiatan ini akan diselenggarakan secara daring melalui Zoom pada hari Kamis, 27 Februari 2025 pukul 13.00 – 15.00 WIB, dengan menghadirkan Yeni Setyowati, S.Si., M.Si., selaku Statistisi Ahli Madya dan Ketua Tim RB ZI dan EPSS BPS Kabupaten Banyuwangi, sebagai pemateri. Bagi sivitas akademika yang ingin mengikuti kegiatan ini, dapat melakukan pendaftaran melalui tautan [https://bit.ly/PendaftaranSosialisasiPojokStatistik](https://bit.ly/PendaftaranSosialisasiPojokStatistik), dan mengikuti kegiatan melalui Zoom di [https://bit.ly/EkplorasiPojokStatistik2025](https://bit.ly/EkplorasiPojokStatistik2025). Jangan lewatkan kesempatan untuk mendapatkan informasi lebih lengkap terkait pemanfaatan Pojok Statistik dalam mendukung kegiatan akademik dan penelitian!
+</p>`,
     imageDetail: "/src/assets/img/event_2.png",
     caption: "Suasana kegiatan Eksplorasi Pojok Statistik di Poliwangi",
   },
 ];
+const event = ref(eventList.find((e) => e.slug === slug.value));
 
-const event = ref(eventList.find((e) => e.slug === slug));
+const eventLainnya = computed(() =>
+  eventList.filter((e) => e.slug !== slug.value).slice(0, 5)
+);
+
+watch(
+  () => route.params.slug,
+  (newSlug) => {
+    slug.value = newSlug;
+    event.value = eventList.find((e) => e.slug === newSlug);
+  }
+);
 </script>

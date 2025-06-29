@@ -517,9 +517,9 @@ const beritaList = [
 const eventList = [
   {
     image: "/src/assets/img/event_1.png",
-    title: "Pendaftaran UTBK-SNBT 2025 Telah Dibuka!",
-    date: "11 - 27 Maret",
-    slug: "pendaftaran-utbk-snbt-2025-telah-dibuka",
+    title: "Pendaftaran Mandiri 2025 Telah Dibuka!",
+    date: "13 June 2025",
+    slug: "pendaftaran-mandiri-2025-telah-dibuka",
   },
   {
     image: "/src/assets/img/event_2.png",
