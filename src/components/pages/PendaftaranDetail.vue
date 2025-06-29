@@ -1,36 +1,19 @@
 <template>
-  <div
-    v-if="event"
-    class="px-6 md:px-20 py-10 space-y-10 font-[var(--font-albert)]"
-  >
-    <div
-      class="text-sm text-[var(--text-gray)] flex items-center gap-1 font-[var(--font-albert)]"
-    >
-      <router-link
-        to="/"
-        class="hover:underline hover:text-[var(--accent-blue)]"
-        >Home</router-link
-      >
+  <div v-if="event" class="px-6 md:px-20 py-10 space-y-10 font-[var(--font-albert)]">
+    <div class="text-sm text-[var(--text-gray)] flex items-center gap-1 font-[var(--font-albert)]">
+      <router-link to="/" class="hover:underline hover:text-[var(--accent-blue)]">Home</router-link>
       <span class="text-[var(--accent-yellow)]">›</span>
-      <span class="text-[var(--text-black)] font-medium">
-        Berita Pendaftaran</span
-      >
+      <span class="text-[var(--text-black)] font-medium"> Berita Pendaftaran</span>
     </div>
 
     <div class="flex flex-col lg:flex-row gap-10">
       <section class="flex-1">
-        <h1
-          class="text-2xl md:text-3xl font-bold text-[var(--blue-dark)] mb-2 font-[var(--font-lora)]"
-        >
+        <h1 class="text-2xl md:text-3xl font-bold text-[var(--blue-dark)] mb-2 font-[var(--font-lora)]" style="font-family: var(--font-lora)">
           {{ event.title }}
         </h1>
-        <div
-          class="text-sm text-[var(--text-gray)] flex items-center flex-wrap gap-4 mb-6 font-[var(--font-albert)]"
-        >
+        <div class="text-sm text-[var(--text-gray)] flex items-center flex-wrap gap-4 mb-6 font-[var(--font-albert)]">
           <span class="flex items-center gap-2">
-            <i
-              class="fa-solid fa-calendar-days text-[var(--accent-yellow)]"
-            ></i>
+            <i class="fa-solid fa-calendar-days text-[var(--accent-yellow)]"></i>
             {{ event.date }}
           </span>
           <span class="flex items-center gap-2">
@@ -41,37 +24,19 @@
 
         <!-- Gambar Event -->
         <div class="w-full mb-6">
-          <img
-            :src="event.image"
-            class="w-full max-w-xl mx-auto object-cover rounded-lg shadow"
-            alt="Foto Event"
-          />
+          <img :src="event.image" class="w-full max-w-xl mx-auto object-cover rounded-lg shadow" alt="Foto Event" />
         </div>
 
         <!-- Isi Konten -->
-        <div
-          class="text-justify text-[var(--text-gray)] leading-relaxed space-y-4 max-w-4xl mx-auto font-[var(--font-albert)]"
-          v-html="event.content"
-        ></div>
+        <div class="text-justify text-[var(--text-gray)] leading-relaxed space-y-4 max-w-4xl mx-auto font-[var(--font-albert)]" v-html="event.content"></div>
       </section>
 
       <!-- Pendaftaran Terbaru -->
       <aside class="w-full lg:w-[30%]">
-        <h2
-          class="text-lg font-semibold border-l-4 border-[var(--accent-yellow)] pl-2 mb-4 text-[var(--blue-dark)] font-[var(--font-lora)]"
-        >
-          Berita Pendaftaran Terbaru
-        </h2>
+        <h2 class="text-lg font-semibold border-l-4 border-[var(--accent-yellow)] pl-2 mb-4 text-[var(--blue-dark)]" style="font-family: var(--font-lora)">Berita Pendaftaran Terbaru</h2>
         <ul class="space-y-5 text-[var(--blue-dark)]">
-          <li
-            v-for="item in recentRegistration"
-            :key="item.slug"
-            class="border-b border-[var(--blue-medium)] pb-3"
-          >
-            <router-link
-              :to="`/pendaftaran/${item.slug}`"
-              class="hover:underline hover:text-[var(--accent-yellow)] font-semibold"
-            >
+          <li v-for="item in recentRegistration" :key="item.slug" class="border-b border-[var(--blue-medium)] pb-3">
+            <router-link :to="`/pendaftaran/${item.slug}`" class="hover:underline hover:text-[var(--accent-yellow)] font-semibold" style="font-family: var(--font-lora)">
               {{ item.title }}
             </router-link>
             <p class="text-xs text-[var(--text-gray)] mt-1">{{ item.date }}</p>
@@ -83,9 +48,7 @@
 
   <!-- Jika Tidak Ada Event -->
   <div v-else class="px-6 md:px-20 py-10">
-    <p class="text-center text-red-500 font-semibold font-[var(--font-albert)]">
-      Berita pendaftaran tidak ditemukan
-    </p>
+    <p class="text-center text-red-500 font-semibold font-[var(--font-albert)]">Berita pendaftaran tidak ditemukan</p>
   </div>
 </template>
 

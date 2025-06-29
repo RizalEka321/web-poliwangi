@@ -1,86 +1,49 @@
 <template>
-  <div
-    v-if="berita"
-    class="px-6 md:px-20 py-10 space-y-10 font-[var(--font-albert)]"
-  >
+  <div v-if="berita" class="px-6 md:px-20 py-10 space-y-10 font-[var(--font-albert)]">
     <!-- Breadcrumb -->
     <div class="text-sm text-[var(--text-gray)] flex items-center gap-1">
-      <router-link
-        to="/"
-        class="hover:underline hover:text-[var(--accent-blue)]"
-        >Home</router-link
-      >
+      <router-link to="/" class="hover:underline hover:text-[var(--accent-blue)]">Home</router-link>
       <span class="text-[var(--accent-yellow)]">›</span>
-      <router-link
-        to="/berita"
-        class="hover:underline hover:text-[var(--accent-blue)]"
-        >Berita</router-link
-      >
+      <router-link to="/berita" class="hover:underline hover:text-[var(--accent-blue)]">Berita</router-link>
     </div>
 
     <!-- Konten Utama -->
     <div class="flex flex-col lg:flex-row gap-10">
       <!-- Berita Detail -->
       <section class="flex-1">
-        <h1 class="text-2xl md:text-3xl font-bold text-[var(--blue-dark)] mb-2">
+        <h1 class="text-2xl md:text-3xl font-bold text-[var(--blue-dark)] mb-2" style="font-family: var(--font-lora)">
           {{ berita.title }}
         </h1>
-        <div
-          class="text-sm text-[var(--text-gray)] flex items-center flex-wrap gap-4 mb-6"
-        >
+        <div class="text-sm text-[var(--text-gray)] flex items-center flex-wrap gap-4 mb-6">
           <span class="flex items-center gap-2">
-            <i
-              class="fa-solid fa-calendar-days text-[var(--accent-yellow)] hover:text-yellow-500"
-            ></i>
+            <i class="fa-solid fa-calendar-days text-[var(--accent-yellow)] hover:text-yellow-500"></i>
             {{ berita.date }}
           </span>
           <span class="flex items-center gap-2">
-            <i
-              class="fa-solid fa-tags text-[var(--accent-yellow)] hover:text-yellow-500"
-            ></i>
+            <i class="fa-solid fa-tags text-[var(--accent-yellow)] hover:text-yellow-500"></i>
             {{ berita.kategori }}
           </span>
           <span class="flex items-center gap-2">
-            <i
-              class="fa-solid fa-user text-[var(--accent-yellow)] hover:text-yellow-500"
-            ></i>
+            <i class="fa-solid fa-user text-[var(--accent-yellow)] hover:text-yellow-500"></i>
             Oleh : Humas POLIWANGI
           </span>
         </div>
 
         <!-- Gambar Berita -->
         <div class="w-full mb-6">
-          <img
-            :src="berita.image"
-            class="w-full max-w-4xl mx-auto object-cover rounded-lg shadow"
-            alt="Foto Berita"
-          />
+          <img :src="berita.image" class="w-full max-w-4xl mx-auto object-cover rounded-lg shadow" alt="Foto Berita" />
         </div>
 
         <!-- Isi Konten -->
-        <div
-          class="text-justify text-[var(--text-gray)] leading-relaxed space-y-4 max-w-4xl mx-auto"
-          v-html="berita.content"
-        ></div>
+        <div class="text-justify text-[var(--text-gray)] leading-relaxed space-y-4 max-w-4xl mx-auto" style="font-family: var(--font-albert)" v-html="berita.content"></div>
       </section>
 
       <!-- Berita Terbaru -->
       <aside class="w-full lg:w-[30%]">
-        <h2
-          class="text-lg font-bold border-l-4 border-[var(--accent-yellow)] pl-2 mb-4 text-[var(--blue-dark)]"
-        >
-          Berita Terbaru
-        </h2>
+        <h2 class="text-lg font-bold border-l-4 border-[var(--accent-yellow)] pl-2 mb-4 text-[var(--blue-dark)]">Berita Terbaru</h2>
         <ul class="space-y-5 text-[var(--blue-dark)]">
-          <li
-            v-for="item in beritaTerbaru"
-            :key="item.slug"
-            class="border-b border-[var(--blue-medium)] pb-3"
-          >
-            <router-link
-              :to="`/berita/${item.slug}`"
-              class="hover:underline hover:text-[var(--accent-yellow)] font-semibold"
-            >
+          <li v-for="item in beritaTerbaru" :key="item.slug" class="border-b border-[var(--blue-medium)] pb-3">
+            <router-link :to="`/berita/${item.slug}`" class="hover:underline hover:text-[var(--accent-yellow)] font-semibold" style="font-family: var(--font-lora)">
               {{ item.title }}
             </router-link>
             <p class="text-xs text-[var(--text-gray)] mt-1">{{ item.date }}</p>
@@ -256,8 +219,7 @@ const beritalList = [
   },
   {
     image: "/src/assets/img/berita_2.png",
-    title:
-      "Workshop Kewirausahaan Mahasiswa Poliwangi untuk Mengembangkan Potensi Bisnis Mahasiswa",
+    title: "Workshop Kewirausahaan Mahasiswa Poliwangi untuk Mengembangkan Potensi Bisnis Mahasiswa",
     date: "18 Juni 2025",
     slug: "workshop-kewirausahaan-mahasiswa-poliwangi-untuk-mengembangkan-potensi-bisnis-mahasiswa",
     kategori: "Akademik",
@@ -272,8 +234,7 @@ const beritalList = [
   },
   {
     image: "/src/assets/img/berita_3.png",
-    title:
-      "Kunjungan Industri Mahasiswa Teknik Poliwangi ke PT XYZ untuk Mendalami Proses Produksi",
+    title: "Kunjungan Industri Mahasiswa Teknik Poliwangi ke PT XYZ untuk Mendalami Proses Produksi",
     date: "15 Juni 2025",
     slug: "kunjungan-industri-mahasiswa-teknik-poliwangi-ke-pt-xyz-untuk-mendalami-proses-produksi",
     kategori: "Akademik",
@@ -288,8 +249,7 @@ const beritalList = [
   },
   {
     image: "/src/assets/img/berita_4.png",
-    title:
-      "Sosialisasi Program Magang Industri Bagi Mahasiswa Poliwangi Sebelum Lulus",
+    title: "Sosialisasi Program Magang Industri Bagi Mahasiswa Poliwangi Sebelum Lulus",
     date: "10 Juni 2025",
     slug: "sosialisasi-program-magang-industri-bagi-mahasiswa-poliwangi-sebelum-lulus",
     kategori: "Akademik",

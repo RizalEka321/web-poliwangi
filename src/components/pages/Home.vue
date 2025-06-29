@@ -1,74 +1,37 @@
 <template>
   <section class="banner-home relative w-full h-[500px] md:h-[600px]">
-    <img
-      src="/src/assets/img/banner_home.jpg"
-      alt="banner"
-      class="w-full h-full object-cover"
-    />
-    <div
-      class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent"
-    ></div>
-    <div
-      class="absolute inset-0 flex items-center text-white z-10 px-4 md:px-20"
-      style="font-family: var(--font-albert)"
-    >
+    <img src="/src/assets/img/banner_home.jpg" alt="banner" class="w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent"></div>
+    <div class="absolute inset-0 flex items-center text-white z-10 px-4 md:px-20" style="font-family: var(--font-albert)">
       <div class="max-w-4xl">
-        <h2 class="text-2xl sm:text-3xl md:text-5xl font-extrabold mb-2">
-          Wujudkan Masa Depan Gemilang Bersama Poliwangi
-        </h2>
-        <h3
-          class="text-lg sm:text-2xl md:text-4xl font-bold text-[#FFD166] mb-2"
-        >
-          Terbaik, Berkualitas dan Berpengalaman
-        </h3>
-        <p class="text-base sm:text-lg md:text-2xl">
-          Pendidikan terbaik yang mempersiapkan Anda langsung siap bersaing di
-          dunia kerja!
-        </p>
+        <h2 class="text-2xl sm:text-3xl md:text-5xl font-extrabold mb-2">Wujudkan Masa Depan Gemilang Bersama Poliwangi</h2>
+        <h3 class="text-lg sm:text-2xl md:text-4xl font-bold text-[#FFD166] mb-2">Terbaik, Berkualitas dan Berpengalaman</h3>
+        <p class="text-base sm:text-lg md:text-2xl">Pendidikan terbaik yang mempersiapkan Anda langsung siap bersaing di dunia kerja!</p>
       </div>
     </div>
   </section>
 
-  <section
-    class="profile-home px-4 py-16 md:px-20 flex flex-col md:flex-row items-center gap-10"
-  >
+  <section class="profile-home px-4 py-16 md:px-20 flex flex-col md:flex-row items-center gap-10">
     <div class="flex-1 text-left" style="font-family: var(--font-albert)">
-      <h2
-        class="text-2xl md:text-2xl font-bold mb-4 text-[var(--text-black)]"
-        style="font-family: var(--font-playfair)"
-      >
-        POLITEKNIK NEGERI BANYUWANGI
-      </h2>
-      <p
-        class="text-base md:text-sm text-[var(--text-black)] mb-4 text-justify"
-      >
-        Poliwangi adalah perguruan tinggi vokasi yang berkomitmen mencetak
-        lulusan unggul dan siap kerja. Dengan kurikulum berbasis industri serta
-        didukung fasilitas modern, kami membekali mahasiswa dengan keterampilan
-        praktis yang relevan dengan dunia kerja.
+      <h2 class="text-2xl md:text-2xl font-bold mb-4 text-[var(--text-black)]" style="font-family: var(--font-playfair)">POLITEKNIK NEGERI BANYUWANGI</h2>
+      <p class="text-base md:text-sm text-[var(--text-black)] mb-4 text-justify">
+        Poliwangi adalah perguruan tinggi vokasi yang berkomitmen mencetak lulusan unggul dan siap kerja. Dengan kurikulum berbasis industri serta didukung fasilitas modern, kami membekali mahasiswa dengan keterampilan praktis yang relevan
+        dengan dunia kerja.
       </p>
-      <p
-        class="text-base md:text-sm text-[var(--text-black)] mb-4 text-justify"
-      >
-        <span class="font-bold">Mengapa Poliwangi?</span> Dengan pendidikan
-        berbasis industri, Poliwangi menawarkan kurikulum yang selaras dengan
-        dunia kerja, didukung oleh dosen berpengalaman, peluang karier luas bagi
-        lulusan, serta fasilitas modern seperti laboratorium dan ruang belajar
-        yang menunjang kreativitas.
+      <p class="text-base md:text-sm text-[var(--text-black)] mb-4 text-justify">
+        <span class="font-bold">Mengapa Poliwangi?</span> Dengan pendidikan berbasis industri, Poliwangi menawarkan kurikulum yang selaras dengan dunia kerja, didukung oleh dosen berpengalaman, peluang karier luas bagi lulusan, serta
+        fasilitas modern seperti laboratorium dan ruang belajar yang menunjang kreativitas.
       </p>
-      <p class="text-base md:text-sm text-[var(--text-black)] text-justify">
-        Bersama Poliwangi, raih masa depan cerah dengan pendidikan yang
-        berorientasi pada keterampilan dan inovasi!
-      </p>
+      <p class="text-base md:text-sm text-[var(--text-black)] text-justify">Bersama Poliwangi, raih masa depan cerah dengan pendidikan yang berorientasi pada keterampilan dan inovasi!</p>
     </div>
     <div class="flex-1">
       <div class="w-full aspect-video rounded overflow-hidden">
         <iframe
           class="w-full h-full"
-          src="https://www.youtube.com/embed/YL9pZKcBgGk?si=39mIIru3oVi7ToE8"
+          src="https://www.youtube.com/embed/YL9pZKcBgGk?si=39mIIru3oVi7ToE8&autoplay=1"
           title="YouTube video player"
           frameborder="0"
-          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           referrerpolicy="strict-origin-when-cross-origin"
           allowfullscreen
         ></iframe>
@@ -77,155 +40,81 @@
   </section>
 
   <section class="info-registration py-16">
-    <div
-      class="flex items-center gap-4 px-4 md:px-20 py-3 mb-5 bg-[var(--accent-yellow)] text-white"
-    >
-      <img
-        src="/src/assets/icon/danger.svg"
-        alt="icon-danger"
-        class="w-10 h-10 invert"
-      />
-      <h2
-        class="text-2xl md:text-2xl font-bold"
-        style="font-family: var(--font-lora)"
-      >
-        INFORMASI PENDAFTARAN
-      </h2>
+    <div class="flex items-center gap-4 px-4 md:px-20 py-3 mb-5 bg-[var(--accent-yellow)] text-white">
+      <img src="/src/assets/icon/danger.svg" alt="icon-danger" class="w-10 h-10 invert" />
+      <h2 class="text-2xl md:text-2xl font-bold" style="font-family: var(--font-lora)">INFORMASI PENDAFTARAN</h2>
     </div>
     <div ref="cardContainer" class="overflow-x-hidden py-3 px-4 md:px-20">
-      <div
-        class="flex space-x-8 transition-transform duration-500"
-        :style="{ transform: `translateX(-${currentPageIndex * pageWidth}px)` }"
-      >
+      <div class="flex space-x-8 transition-transform duration-500" :style="{ transform: `translateX(-${currentPageIndex * pageWidth}px)` }">
         <router-link
           :to="`/pendaftaran/${item.slug}`"
           v-for="(item, index) in registrationData"
           :key="index"
           class="relative bg-white rounded-lg shadow-lg w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 flex-shrink-0 transition hover:shadow-xl overflow-hidden block"
         >
-          <img
-            :src="item.image"
-            alt=""
-            class="absolute inset-0 w-full h-full object-cover"
-          />
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"
-          ></div>
-          <div
-            class="relative z-10 p-4 text-white flex flex-col justify-end h-full text-justify"
-          >
+          <img :src="item.image" alt="" class="absolute inset-0 w-full h-full object-cover" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
+          <div class="relative z-10 p-4 text-white flex flex-col justify-end h-full text-justify">
             <h5 class="text-base font-bold">{{ item.title }}</h5>
             <p class="text-xs mb-3">{{ item.description }}</p>
             <hr />
             <div class="flex justify-between items-center text-xs mt-2">
               <p><i class="fa-solid fa-calendar-days me-2"></i>21 Maret 2002</p>
-              <span class="font-semibold hover:text-yellow-400"
-                >Read More <i class="fa-solid fa-arrow-right ms-2"></i
-              ></span>
+              <span class="font-semibold hover:text-yellow-400">Read More <i class="fa-solid fa-arrow-right ms-2"></i></span>
             </div>
           </div>
         </router-link>
       </div>
     </div>
     <div class="flex justify-center items-center mt-10 space-x-2">
-      <button
-        class="w-10 h-10 rounded-xl bg-[#E0E0E0] shadow font-bold hover:bg-[var(--accent-blue)] hover:text-white transition duration-300 ease-in-out"
-        @click="prevPage"
-        :disabled="currentPageIndex === 0"
-      >
+      <button class="w-10 h-10 rounded-xl bg-[#E0E0E0] shadow font-bold hover:bg-[var(--accent-blue)] hover:text-white transition duration-300 ease-in-out" @click="prevPage" :disabled="currentPageIndex === 0">
         <i class="fa-solid fa-chevron-left"></i>
       </button>
       <button
         v-for="page in totalPages"
         :key="page"
         class="w-10 h-10 rounded-xl shadow font-bold transition duration-300 ease-in-out"
-        :class="
-          currentPageIndex === page - 1
-            ? 'bg-[var(--accent-blue)] text-white'
-            : 'bg-[#E0E0E0] text-[var(--text-black)] hover:bg-[var(--accent-blue)] hover:text-white'
-        "
+        :class="currentPageIndex === page - 1 ? 'bg-[var(--accent-blue)] text-white' : 'bg-[#E0E0E0] text-[var(--text-black)] hover:bg-[var(--accent-blue)] hover:text-white'"
         @click="goToPage(page - 1)"
       >
         {{ page }}
       </button>
-      <button
-        class="w-10 h-10 rounded-xl bg-[#E0E0E0] shadow font-bold hover:bg-[var(--accent-blue)] hover:text-white transition duration-300 ease-in-out"
-        @click="nextPage"
-        :disabled="currentPageIndex === totalPages - 1"
-      >
+      <button class="w-10 h-10 rounded-xl bg-[#E0E0E0] shadow font-bold hover:bg-[var(--accent-blue)] hover:text-white transition duration-300 ease-in-out" @click="nextPage" :disabled="currentPageIndex === totalPages - 1">
         <i class="fa-solid fa-chevron-right"></i>
       </button>
     </div>
   </section>
 
   <section class="news">
-    <div
-      class="flex flex-col items-center justify-center gap-4 px-4 md:px-20 py-3 mb-5"
-    >
-      <h2
-        class="text-2xl md:text-2xl font-bold text-[var(--accent-yellow)]"
-        style="font-family: var(--font-lora)"
-      >
-        <span class="text-[var(--blue-dark)]">Berita Terkini</span> POLIWANGI
-      </h2>
+    <div class="flex flex-col items-center justify-center gap-4 px-4 md:px-20 py-3 mb-5">
+      <h2 class="text-2xl md:text-2xl font-bold text-[var(--accent-yellow)]" style="font-family: var(--font-lora)"><span class="text-[var(--blue-dark)]">Berita Terkini</span> POLIWANGI</h2>
       <div class="w-20 h-1 bg-[var(--accent-yellow)] rounded-full"></div>
     </div>
     <div class="px-4 mb-5 md:px-20 flex flex-col md:flex-row gap-10">
       <div class="flex-1">
-        <router-link
-          to="/berita/detail"
-          class="bg-white overflow-hidden cursor-pointer"
-        >
-          <img
-            src="/src/assets/img/berita_1.png"
-            alt="Berita Utama"
-            class="w-full h-75 object-cover"
-          />
+        <router-link to="/berita/detail" class="bg-white overflow-hidden cursor-pointer">
+          <img src="/src/assets/img/berita_1.png" alt="Berita Utama" class="w-full h-75 object-cover" />
           <div class="py-3">
-            <h3
-              class="text-xl font-bold text-[var(--text-black)] mb-2 text-justify hover:text-yellow-400"
-            >
-              Sosialisasi Program Magang Industri Bagi Mahasiswa Poliwangi
-              Sebelum Lulus ke Dunia Kerja
-            </h3>
+            <h3 class="text-xl font-bold text-[var(--text-black)] mb-2 text-justify hover:text-yellow-400">Sosialisasi Program Magang Industri Bagi Mahasiswa Poliwangi Sebelum Lulus ke Dunia Kerja</h3>
             <div class="flex items-center text-sm text-[var(--text-black)]">
               <p><i class="fa-solid fa-calendar-days me-2"></i>21 Maret 2002</p>
               <span class="mx-2">|</span>
               <p><i class="fa-solid fa-tags me-2"></i>Berita</p>
             </div>
-            <p class="text-[var(--text-black)] mb-4 text-justify">
-              Ringkasan singkat dari berita utama yang sedang tampil di sini.
-              Konten berita utama biasanya berisi highlight terkini dari
-              Poliwangi.
-            </p>
+            <p class="text-[var(--text-black)] mb-4 text-justify">Ringkasan singkat dari berita utama yang sedang tampil di sini. Konten berita utama biasanya berisi highlight terkini dari Poliwangi.</p>
           </div>
         </router-link>
       </div>
       <div class="flex-1 space-y-1">
-        <div
-          v-for="(item, index) in beritaList"
-          :key="index"
-          class="bg-white p-2 flex gap-4 items-stretch cursor-pointer"
-        >
-          <router-link
-            :to="`/berita/${item.slug}`"
-            class="flex gap-4 items-stretch w-full"
-          >
-            <img
-              :src="item.image"
-              alt="Thumbnail"
-              class="w-[120px] object-cover"
-            />
+        <div v-for="(item, index) in beritaList" :key="index" class="bg-white p-2 flex gap-4 items-stretch cursor-pointer">
+          <router-link :to="`/berita/${item.slug}`" class="flex gap-4 items-stretch w-full">
+            <img :src="item.image" alt="Thumbnail" class="w-[120px] object-cover" />
             <div class="flex-1">
-              <h4
-                class="font-bold text-[var(--text-black)] mb-1 text-justify leading-[1.3rem] hover:text-yellow-400"
-              >
+              <h4 class="font-bold text-[var(--text-black)] mb-1 text-justify leading-[1.3rem] hover:text-yellow-400">
                 {{ item.title }}
               </h4>
               <div class="flex items-center text-sm text-[var(--text-black)]">
-                <p>
-                  <i class="fa-solid fa-calendar-days me-2"></i>{{ item.date }}
-                </p>
+                <p><i class="fa-solid fa-calendar-days me-2"></i>{{ item.date }}</p>
                 <span class="mx-2">|</span>
                 <p><i class="fa-solid fa-tags me-2"></i>Berita</p>
               </div>
@@ -236,58 +125,31 @@
           </router-link>
         </div>
         <div class="flex justify-end">
-          <router-link to="/berita" class="font-semibold hover:text-yellow-400"
-            >Berita Lainnya<i class="fa-solid fa-circle-right ms-2"></i
-          ></router-link>
+          <router-link to="/berita" class="font-semibold hover:text-yellow-400">Berita Lainnya<i class="fa-solid fa-circle-right ms-2"></i></router-link>
         </div>
       </div>
     </div>
   </section>
 
   <section class="event py-15">
-    <div
-      class="flex flex-col items-center justify-center gap-4 px-4 md:px-20 py-3 mb-5"
-    >
-      <h2
-        class="text-2xl md:text-2xl font-bold text-[var(--blue-dark)]"
-        style="font-family: var(--font-lora)"
-      >
-        Event
-      </h2>
+    <div class="flex flex-col items-center justify-center gap-4 px-4 md:px-20 py-3 mb-5">
+      <h2 class="text-2xl md:text-2xl font-bold text-[var(--blue-dark)]" style="font-family: var(--font-lora)">Event</h2>
       <div class="w-15 h-1 bg-[var(--accent-yellow)] rounded-full"></div>
     </div>
 
-    <div
-      :class="
-        eventList.length >= 4
-          ? 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center px-4 md:px-20'
-          : 'flex flex-wrap justify-center gap-6 px-4 md:px-20'
-      "
-    >
-      <div
-        v-for="(item, index) in eventList"
-        :key="index"
-        class="bg-white overflow-hidden cursor-pointer w-full max-w-[300px]"
-      >
+    <div :class="eventList.length >= 4 ? 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center px-4 md:px-20' : 'flex flex-wrap justify-center gap-6 px-4 md:px-20'">
+      <div v-for="(item, index) in eventList" :key="index" class="bg-white overflow-hidden cursor-pointer w-full max-w-[300px]">
         <router-link :to="`/event/${item.slug}`" class="block">
           <div class="h-70 overflow-hidden">
-            <img
-              :src="item.image"
-              :alt="item.title"
-              class="w-full h-full object-cover"
-            />
+            <img :src="item.image" :alt="item.title" class="w-full h-full object-cover" />
           </div>
           <div class="py-2">
-            <div
-              class="flex justify-between items-center text-sm font-semibold text-[var(--text-black)] mb-1"
-            >
+            <div class="flex justify-between items-center text-sm font-semibold text-[var(--text-black)] mb-1">
               <p>Event</p>
               <p>{{ item.date }}</p>
             </div>
             <hr />
-            <h3
-              class="font-semibold text-base mb-2 text-[var(--text-black)] leading-[1.3rem] text-justify hover:text-yellow-400"
-            >
+            <h3 class="font-semibold text-base mb-2 text-[var(--text-black)] leading-[1.3rem] text-justify hover:text-yellow-400">
               {{ item.title }}
             </h3>
           </div>
@@ -297,38 +159,17 @@
   </section>
 
   <section class="service relative w-full h-[400px] md:h-[500px] my-20">
-    <img
-      src="/src/assets/img/perpus.png"
-      alt="banner"
-      class="w-full h-full object-cover"
-    />
-    <div
-      class="absolute inset-0 rounded-lg bg-gradient-to-t from-blue-900 via-blue-600/30 to-transparent"
-    ></div>
+    <img src="/src/assets/img/perpus.png" alt="banner" class="w-full h-full object-cover" />
+    <div class="absolute inset-0 rounded-lg bg-gradient-to-t from-blue-900 via-blue-600/30 to-transparent"></div>
     <div class="absolute inset-0">
-      <div
-        class="flex items-center justify-center text-white z-10 px-4 md:px-20 py-15"
-      >
-        <h2
-          class="text-4xl md:text-4xl font-black text-white"
-          style="font-family: var(--font-lora)"
-        >
-          Layanan Digital
-        </h2>
+      <div class="flex items-center justify-center text-white z-10 px-4 md:px-20 py-15">
+        <h2 class="text-4xl md:text-4xl font-black text-white" style="font-family: var(--font-lora)">Layanan Digital</h2>
       </div>
-      <div
-        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 px-4 md:px-20"
-      >
-        <div
-          v-for="(item, index) in serviceList"
-          :key="index"
-          class="bg-white overflow-hidden rounded-lg cursor-pointer"
-        >
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 px-4 md:px-20">
+        <div v-for="(item, index) in serviceList" :key="index" class="bg-white overflow-hidden rounded-lg cursor-pointer">
           <div class="p-4 flex flex-col items-center text-[var(--blue-dark)]">
             <i :class="[item.icon, 'text-5xl', 'mb-3']"></i>
-            <h3
-              class="font-semibold text-base leading-[1.3rem] text-center hover:text-[var(--accent-yellow)]"
-            >
+            <h3 class="font-semibold text-base leading-[1.3rem] text-center hover:text-[var(--accent-yellow)]">
               {{ item.title }}
             </h3>
           </div>
@@ -338,81 +179,42 @@
   </section>
 
   <section class="partnert">
-    <div
-      class="flex flex-col items-center justify-center gap-4 px-4 md:px-20 py-3 mb-5"
-    >
-      <h2
-        class="text-3xl md:text-4xl font-black text-[var(--text-black)]"
-        style="font-family: var(--font-lora)"
-      >
-        International Partners
-      </h2>
+    <div class="flex flex-col items-center justify-center gap-4 px-4 md:px-20 py-3 mb-5">
+      <h2 class="text-3xl md:text-4xl font-black text-[var(--text-black)]" style="font-family: var(--font-lora)">International Partners</h2>
       <div class="w-15 h-1 bg-[var(--accent-yellow)] rounded-full"></div>
     </div>
     <div class="flex flex-wrap justify-center gap-6 mb-8">
-      <img
-        v-for="(img, index) in topPartners"
-        :key="'top-' + index"
-        :src="img"
-        class="h-[40px] md:h-[50px] object-contain"
-      />
+      <img v-for="(img, index) in topPartners" :key="'top-' + index" :src="img" class="h-[40px] md:h-[50px] object-contain" />
     </div>
 
     <div class="flex flex-wrap justify-center gap-6">
-      <img
-        v-for="(img, index) in bottomPartners"
-        :key="'bottom-' + index"
-        :src="img"
-        class="h-[60px] md:h-[80px] object-contain"
-      />
+      <img v-for="(img, index) in bottomPartners" :key="'bottom-' + index" :src="img" class="h-[60px] md:h-[80px] object-contain" />
     </div>
   </section>
 
   <section class="faq max-w-4xl mx-auto py-20 px-4">
-    <h2
-      class="text-3xl md:text-4xl font-black text-center text-[var(--text-black)] mb-4"
-      style="font-family: var(--font-lora)"
-    >
-      Frequently Asked Question
-    </h2>
-    <div
-      class="w-16 h-1 bg-[var(--accent-yellow)] mx-auto mb-6 rounded-full"
-    ></div>
-    <p
-      class="text-center text-sm text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed font-[var(--font-albert)]"
-    >
-      Temukan jawaban atas berbagai pertanyaan seputar program studi, proses
-      pendaftaran, biaya kuliah, fasilitas kampus, dan informasi penting
-      lainnya. Kami telah merangkum jawaban secara ringkas dan jelas untuk
-      membantu Anda mendapatkan informasi dengan mudah. Jika masih ada
-      pertanyaan, jangan ragu untuk menghubungi kami!
+    <h2 class="text-3xl md:text-4xl font-black text-center text-[var(--text-black)] mb-4" style="font-family: var(--font-lora)">Frequently Asked Question</h2>
+    <div class="w-16 h-1 bg-[var(--accent-yellow)] mx-auto mb-6 rounded-full"></div>
+    <p class="text-center text-sm text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed font-[var(--font-albert)]">
+      Temukan jawaban atas berbagai pertanyaan seputar program studi, proses pendaftaran, biaya kuliah, fasilitas kampus, dan informasi penting lainnya. Kami telah merangkum jawaban secara ringkas dan jelas untuk membantu Anda mendapatkan
+      informasi dengan mudah. Jika masih ada pertanyaan, jangan ragu untuk menghubungi kami!
     </p>
 
     <div class="space-y-4">
-      <div
-        v-for="(faq, index) in faqs"
-        :key="index"
-        class="rounded-lg overflow-hidden shadow"
-      >
+      <div v-for="(faq, index) in faqs" :key="index" class="rounded-lg overflow-hidden shadow">
         <button
           @click="toggle(index)"
           class="w-full text-left px-6 py-4 text-white font-medium flex justify-between items-center focus:outline-none transition-all duration-300"
           :style="{
-            background:
-              'linear-gradient(90deg, #0085DE 0%, #005E9D 43%, #004878 85%)',
+            background: 'linear-gradient(90deg, #0085DE 0%, #005E9D 43%, #004878 85%)',
           }"
         >
           {{ faq.question }}
           <span class="text-xl">
-            <i
-              :class="activeIndex === index ? 'fas fa-minus' : 'fas fa-plus'"
-            ></i>
+            <i :class="activeIndex === index ? 'fas fa-minus' : 'fas fa-plus'"></i>
           </span>
         </button>
-        <div
-          v-if="activeIndex === index"
-          class="bg-gray-100 px-6 py-4 text-sm text-black leading-relaxed"
-        >
+        <div v-if="activeIndex === index" class="bg-gray-100 px-6 py-4 text-sm text-black leading-relaxed">
           {{ faq.answer }}
         </div>
       </div>
@@ -426,32 +228,28 @@ const registrationData = [
   {
     image: "/src/assets/img/utbk_snbt.png",
     title: "Pilihan Program Studi Politeknik Negeri Banyuwangi",
-    description:
-      "Berikut Program Studi yang dibuka di Jalur UTBK-SNBT 2025 di Politeknik Negeri Banyuwangi...",
+    description: "Berikut Program Studi yang dibuka di Jalur UTBK-SNBT 2025 di Politeknik Negeri Banyuwangi...",
     date: "15 Januari 2025",
     slug: "pilihan-program-studi-politeknik-negeri-banyuwangi",
   },
   {
     image: "/src/assets/img/kipk.png",
     title: "PENGUMUMAN HASIL SELEKSI MAHASISWA BARU",
-    description:
-      "Berdasarkan hasil seleksi Tim Pengelola Beasiswa Kartu Indonesia Pintar Kuliah (KIPK)...",
+    description: "Berdasarkan hasil seleksi Tim Pengelola Beasiswa Kartu Indonesia Pintar Kuliah (KIPK)...",
     date: "9 Juli 2024",
     slug: "pengumuman-hasil-seleksi-mahasiswa-baru",
   },
   {
     image: "/src/assets/img/presentasesnbt.png",
     title: "Pengumuman Jumlah Pendaftar SNBP 2025",
-    description:
-      "Politeknik Negeri Banyuwangi mengucapkan terima kasih kepada seluruh siswa yang telah...",
+    description: "Politeknik Negeri Banyuwangi mengucapkan terima kasih kepada seluruh siswa yang telah...",
     date: "10 Maret 2025",
     slug: "pengumuman-jumlah-pendaftar-snbp-2025",
   },
   {
     image: "/src/assets/img/utbk_snbt.png",
     title: "Pengumuman PMDK",
-    description:
-      "Penerimaan Mahasiswa Baru melalui Jalur PMDK diperuntukkan bagi siswa berprestasi dari sekolah mitra yang telah bekerjasama dengan Poliwangi.",
+    description: "Penerimaan Mahasiswa Baru melalui Jalur PMDK diperuntukkan bagi siswa berprestasi dari sekolah mitra yang telah bekerjasama dengan Poliwangi.",
     date: "18 Maret 2025",
     slug: "pengumuman-pmdk",
   },
@@ -461,9 +259,7 @@ const cardContainer = ref(null);
 const cardWidth = 320 + 24;
 const cardsPerPage = 3;
 const pageWidth = cardWidth * cardsPerPage;
-const totalPages = computed(() =>
-  Math.ceil(registrationData.length / cardsPerPage)
-);
+const totalPages = computed(() => Math.ceil(registrationData.length / cardsPerPage));
 const currentPageIndex = ref(0);
 
 function goToPage(page) {
@@ -487,29 +283,23 @@ const beritaList = [
   {
     image: "/src/assets/img/berita_2.png",
     slug: "workshop-kewirausahaan-mahasiswa-poliwangi-untuk-mengembangkan-potensi-bisnis-mahasiswa",
-    title:
-      "Workshop Kewirausahaan Mahasiswa Poliwangi untuk Mengembangkan Potensi Bisnis Mahasiswa",
+    title: "Workshop Kewirausahaan Mahasiswa Poliwangi untuk Mengembangkan Potensi Bisnis Mahasiswa",
     date: "18 Juni 2025",
-    description:
-      "Mahasiswa Poliwangi mengikuti workshop intensif mengenai pengembangan bisnis, perencanaan usaha, serta strategi kehidupan yang keren.",
+    description: "Mahasiswa Poliwangi mengikuti workshop intensif mengenai pengembangan bisnis, perencanaan usaha, serta strategi kehidupan yang keren.",
   },
   {
     image: "/src/assets/img/berita_3.png",
     slug: "kunjungan-industri-mahasiswa-teknik-poliwangi-ke-pt-xyz-untuk-mendalami-proses-produksi",
-    title:
-      "Kunjungan Industri Mahasiswa Teknik Poliwangi ke PT XYZ untuk Mendalami Proses Produksi",
+    title: "Kunjungan Industri Mahasiswa Teknik Poliwangi ke PT XYZ untuk Mendalami Proses Produksi",
     date: "15 Juni 2025",
-    description:
-      "Mahasiswa jurusan Teknik melakukan kunjungan ke PT XYZ untuk mempelajari penerapan teknologi modern dalam lini produksi.",
+    description: "Mahasiswa jurusan Teknik melakukan kunjungan ke PT XYZ untuk mempelajari penerapan teknologi modern dalam lini produksi.",
   },
   {
     image: "/src/assets/img/berita_4.png",
     slug: "sosialisasi-program-magang-industri-bagi-mahasiswa-poliwangi-sebelum-lulus",
-    title:
-      "Sosialisasi Program Magang Industri Bagi Mahasiswa Poliwangi Sebelum Lulus",
+    title: "Sosialisasi Program Magang Industri Bagi Mahasiswa Poliwangi Sebelum Lulus",
     date: "10 Juni 2025",
-    description:
-      "Poliwangi mengadakan sosialisasi program magang industri guna memberikan wawasan praktis dan meningkatkan kesiapan kerja.",
+    description: "Poliwangi mengadakan sosialisasi program magang industri guna memberikan wawasan praktis dan meningkatkan kesiapan kerja.",
   },
 ];
 
@@ -523,8 +313,7 @@ const eventList = [
   },
   {
     image: "/src/assets/img/event_2.png",
-    title:
-      "Eksplorasi Pojok Statistik: Wadah Literasi Data untuk Semua Akademisi",
+    title: "Eksplorasi Pojok Statistik: Wadah Literasi Data untuk Semua Akademisi",
     date: "27 Feb",
     slug: "eksplorasi-pojok-statistik-wadah-literasi-data-untuk-semua-akademisi",
   },
@@ -594,13 +383,11 @@ const faqs = [
   },
   {
     question: "Bagaimana cara mendaftar di Poliwangi?",
-    answer:
-      "Pendaftaran dilakukan secara online melalui situs resmi Poliwangi atau portal penerimaan mahasiswa baru seperti SNMPN dan SBMPN. Pastikan Anda memenuhi syarat pendaftaran dan mengikuti jadwal yang ditentukan.",
+    answer: "Pendaftaran dilakukan secara online melalui situs resmi Poliwangi atau portal penerimaan mahasiswa baru seperti SNMPN dan SBMPN. Pastikan Anda memenuhi syarat pendaftaran dan mengikuti jadwal yang ditentukan.",
   },
   {
     question: "Apakah Poliwangi menerima jalur prestasi?",
-    answer:
-      "Ya, Poliwangi menerima mahasiswa melalui jalur prestasi seperti SNMPN (Seleksi Nasional Masuk Politeknik Negeri) dan jalur mandiri yang mempertimbangkan nilai rapor dan prestasi lainnya.",
+    answer: "Ya, Poliwangi menerima mahasiswa melalui jalur prestasi seperti SNMPN (Seleksi Nasional Masuk Politeknik Negeri) dan jalur mandiri yang mempertimbangkan nilai rapor dan prestasi lainnya.",
   },
   {
     question: "Bagaimana sistem perkuliahan di Poliwangi?",
