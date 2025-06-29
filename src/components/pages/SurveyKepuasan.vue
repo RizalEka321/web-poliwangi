@@ -60,7 +60,10 @@
               Form Kuisioner.
             </h1>
             <h2 class="text-lg md:text-xl font-bold text-white underline">
-              SURVEY KEPUASAN MASYARAKAT
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSf0QBjAh2AnRtf9NMHqorqPT8YHGG2C-g_VBAlApR3rt2FZ0A/viewform"
+                >SURVEY KEPUASAN MASYARAKAT</a
+              >
             </h2>
           </div>
         </div>

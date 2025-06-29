@@ -1,9 +1,11 @@
 <template>
   <div class="px-6 md:px-20 py-10 space-y-10" v-if="event">
     <div class="text-sm text-gray-500">
-      <router-link to="/" class="hover:underline hover:text-blue-600">Home</router-link>
+      <router-link to="/" class="hover:underline hover:text-blue-600"
+        >Home</router-link
+      >
       <span class="mx-1 text-yellow-500">›</span>
-      <a class="hover:underline hover:text-blue-600">Event</a>
+      <a>Event</a>
       <span class="mx-1 text-yellow-500">›</span>
       <span class="font-medium text-black">{{ event.title }}</span>
     </div>
@@ -12,8 +14,13 @@
       <div class="mb-5 space-y-2">
         <h1 class="text-3xl font-bold text-black">{{ event.title }}</h1>
         <p class="text-sm text-gray-500 flex items-center flex-wrap gap-3">
-          <span class="flex items-center"><i class="fa-solid fa-calendar-days me-2"></i> {{ event.date }}</span>
-          <span class="flex items-center"><i class="fa-solid fa-tags me-2"></i> Event</span>
+          <span class="flex items-center"
+            ><i class="fa-solid fa-calendar-days me-2"></i>
+            {{ event.date }}</span
+          >
+          <span class="flex items-center"
+            ><i class="fa-solid fa-tags me-2"></i> Event</span
+          >
         </p>
       </div>
 
@@ -21,7 +28,9 @@
     </section>
   </div>
 
-  <div v-else class="px-6 py-10 text-center text-gray-500">Event tidak ditemukan.</div>
+  <div v-else class="px-6 py-10 text-center text-gray-500">
+    Event tidak ditemukan.
+  </div>
 </template>
 
 <script setup>
@@ -76,7 +85,8 @@ const eventList = [
   },
   {
     image: "/src/assets/img/event_2.png",
-    title: "Eksplorasi Pojok Statistik: Wadah Literasi Data untuk Semua Akademisi",
+    title:
+      "Eksplorasi Pojok Statistik: Wadah Literasi Data untuk Semua Akademisi",
     date: "27 Februari",
     slug: "eksplorasi-pojok-statistik-wadah-literasi-data-untuk-semua-akademisi",
     content: `

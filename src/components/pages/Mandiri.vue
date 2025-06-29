@@ -1,6 +1,5 @@
 <template>
   <div class="px-6 md:px-20 py-10 space-y-10">
-    <!-- Breadcrumb -->
     <div class="text-sm text-[var(--text-gray)] font-[var(--font-albert)]">
       <router-link
         to="/"
@@ -14,17 +13,12 @@
     <div
       class="relative w-full max-w-[1364px] h-[301px] mx-auto overflow-hidden"
     >
-      <!-- Gambar Banner -->
       <img
         :src="bannerpendaftaran"
         alt="Banner Pendaftaran"
         class="object-cover w-full h-full"
       />
-
-      <!-- Warna Overlay Solid -->
       <div class="absolute inset-0 bg-[#004878] opacity-70"></div>
-
-      <!-- Teks -->
       <div class="absolute inset-0 flex items-center pl-10">
         <h1
           class="text-3xl md:text-5xl font-bold text-white"
@@ -75,6 +69,11 @@
         kesempatan untuk bergabung dengan Politeknik Negeri Banyuwangi sesuai
         dengan kemampuan dan prestasi mereka.
       </p>
+      <img
+        :src="postermandiri"
+        alt="Poster Mandiri"
+        class="mx-auto w-auto h-[700px] mt-5"
+      />
       <h2
         class="text-xl font-bold mb-2 border-b-2 border-[var(--accent-yellow)] inline-block text-[var(--blue-dark)] mt-5"
         style="font-family: var(--font-lora)"
@@ -567,5 +566,6 @@
 </template>
 
 <script setup>
+import postermandiri from "@/assets/img/mandiri.png";
 import bannerpendaftaran from "@/assets/img/bannerpendaftaran.png";
 </script>

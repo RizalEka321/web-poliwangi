@@ -460,11 +460,13 @@
                 class="block px-4 py-2 text-[#004878] hover:bg-[#004878] hover:text-white"
                 >Kehidupan Kampus</router-link
               >
-              <router-link
-                to="/alumni"
+              <a
+                href="https://jpc.poliwangi.ac.id/"
+                rel="noopener noreferrer"
                 class="block px-4 py-2 text-[#004878] hover:bg-[#004878] hover:text-white"
-                >Alumni</router-link
               >
+                Alumni
+              </a>
               <router-link
                 to="/publikasi"
                 class="block px-4 py-2 text-[#004878] hover:bg-[#004878] hover:text-white"

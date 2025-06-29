@@ -65,10 +65,10 @@
       <div class="w-full aspect-video rounded overflow-hidden">
         <iframe
           class="w-full h-full"
-          src="#"
+          src="https://www.youtube.com/embed/YL9pZKcBgGk?si=39mIIru3oVi7ToE8"
           title="YouTube video player"
           frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           referrerpolicy="strict-origin-when-cross-origin"
           allowfullscreen
         ></iframe>
@@ -208,7 +208,7 @@
           class="bg-white p-2 flex gap-4 items-stretch cursor-pointer"
         >
           <router-link
-            to="/berita/detail"
+            :to="`/berita/${item.slug}`"
             class="flex gap-4 items-stretch w-full"
           >
             <img
@@ -269,7 +269,7 @@
         :key="index"
         class="bg-white overflow-hidden cursor-pointer w-full max-w-[300px]"
       >
-        <router-link to="/event/detail" class="block">
+        <router-link :to="`/event/${item.slug}`" class="block">
           <div class="h-70 overflow-hidden">
             <img
               :src="item.image"
@@ -428,7 +428,6 @@ const registrationData = [
     title: "Pilihan Program Studi Politeknik Negeri Banyuwangi",
     description:
       "Berikut Program Studi yang dibuka di Jalur UTBK-SNBT 2025 di Politeknik Negeri Banyuwangi...",
-    link: "/snbp",
     date: "15 Januari 2025",
     slug: "pilihan-program-studi-politeknik-negeri-banyuwangi",
   },
@@ -437,7 +436,6 @@ const registrationData = [
     title: "PENGUMUMAN HASIL SELEKSI MAHASISWA BARU",
     description:
       "Berdasarkan hasil seleksi Tim Pengelola Beasiswa Kartu Indonesia Pintar Kuliah (KIPK)...",
-    link: "/utbk-snbt",
     date: "9 Juli 2024",
     slug: "pengumuman-hasil-seleksi-mahasiswa-baru",
   },
@@ -446,42 +444,16 @@ const registrationData = [
     title: "Pengumuman Jumlah Pendaftar SNBP 2025",
     description:
       "Politeknik Negeri Banyuwangi mengucapkan terima kasih kepada seluruh siswa yang telah...",
-    link: "/mandiri",
     date: "10 Maret 2025",
     slug: "pengumuman-jumlah-pendaftar-snbp-2025",
   },
   {
     image: "/src/assets/img/utbk_snbt.png",
-    title: "PMDK",
+    title: "Pengumuman PMDK",
     description:
       "Penerimaan Mahasiswa Baru melalui Jalur PMDK diperuntukkan bagi siswa berprestasi dari sekolah mitra yang telah bekerjasama dengan Poliwangi.",
-    link: "/pmdk",
     date: "18 Maret 2025",
-  },
-  {
-    image: "/src/assets/img/utbk_snbt.png",
-
-    title: "KIP Kuliah",
-    description:
-      "Kartu Indonesia Pintar (KIP) Kuliah memberikan bantuan biaya pendidikan bagi siswa dari keluarga kurang mampu untuk melanjutkan pendidikan ke jenjang perguruan tinggi.",
-    link: "/kip-kuliah",
-    date: "25 Maret 2025",
-  },
-  {
-    image: "/src/assets/img/utbk_snbt.png",
-    title: "Alih Jenjang",
-    description:
-      "Program Alih Jenjang memungkinkan lulusan D3 atau sarjana terapan untuk melanjutkan pendidikan ke jenjang yang lebih tinggi dengan pengakuan beberapa mata kuliah yang telah diambil.",
-    link: "/alih-jenjang",
-    date: "1 April 2025",
-  },
-  {
-    image: "/src/assets/img/utbk_snbt.png",
-    title: "Program Internasional",
-    description:
-      "Program Internasional memberikan kesempatan kepada mahasiswa untuk mengikuti program pembelajaran dan pertukaran mahasiswa dengan kampus-kampus mitra di luar negeri.",
-    link: "/internasional",
-    date: "10 April 2025",
+    slug: "pengumuman-pmdk",
   },
 ];
 
@@ -514,6 +486,7 @@ function nextPage() {
 const beritaList = [
   {
     image: "/src/assets/img/berita_2.png",
+    slug: "workshop-kewirausahaan-mahasiswa-poliwangi-untuk-mengembangkan-potensi-bisnis-mahasiswa",
     title:
       "Workshop Kewirausahaan Mahasiswa Poliwangi untuk Mengembangkan Potensi Bisnis Mahasiswa",
     date: "18 Juni 2025",
@@ -522,6 +495,7 @@ const beritaList = [
   },
   {
     image: "/src/assets/img/berita_3.png",
+    slug: "kunjungan-industri-mahasiswa-teknik-poliwangi-ke-pt-xyz-untuk-mendalami-proses-produksi",
     title:
       "Kunjungan Industri Mahasiswa Teknik Poliwangi ke PT XYZ untuk Mendalami Proses Produksi",
     date: "15 Juni 2025",
@@ -530,6 +504,7 @@ const beritaList = [
   },
   {
     image: "/src/assets/img/berita_4.png",
+    slug: "sosialisasi-program-magang-industri-bagi-mahasiswa-poliwangi-sebelum-lulus",
     title:
       "Sosialisasi Program Magang Industri Bagi Mahasiswa Poliwangi Sebelum Lulus",
     date: "10 Juni 2025",

@@ -1,30 +1,100 @@
 <template>
-  <div v-if="berita" class="px-6 md:px-20 py-10 space-y-10">
-    <div class="text-sm text-gray-500">
-      <router-link to="/" class="hover:underline hover:text-blue-600">Home</router-link>
-      <span class="mx-1 text-yellow-500">›</span>
-      <router-link to="/berita" class="hover:underline hover:text-blue-600">Berita</router-link>
-      <span class="mx-1 text-yellow-500">›</span>
-      <span class="font-medium text-black">{{ berita.title }}</span>
+  <div
+    v-if="berita"
+    class="px-6 md:px-20 py-10 space-y-10 font-[var(--font-albert)]"
+  >
+    <!-- Breadcrumb -->
+    <div class="text-sm text-[var(--text-gray)] flex items-center gap-1">
+      <router-link
+        to="/"
+        class="hover:underline hover:text-[var(--accent-blue)]"
+        >Home</router-link
+      >
+      <span class="text-[var(--accent-yellow)]">›</span>
+      <router-link
+        to="/berita"
+        class="hover:underline hover:text-[var(--accent-blue)]"
+        >Berita</router-link
+      >
+      <span class="text-[var(--accent-yellow)]">›</span>
+      <span class="font-medium text-[var(--text-black)]">{{
+        berita.title
+      }}</span>
     </div>
 
-    <section class="berita">
-      <div class="mb-5 space-y-2">
-        <h1 class="text-3xl font-bold text-black">{{ berita.title }}</h1>
-        <p class="text-sm text-gray-500 flex items-center flex-wrap gap-3">
-          <span class="flex items-center"><i class="fa-solid fa-calendar-days me-2"></i> {{ berita.date }}</span>
-          <span class="flex items-center"><i class="fa-solid fa-tags me-2"></i> {{ berita.kategori }}</span>
-        </p>
-      </div>
+    <!-- Konten Utama -->
+    <div class="flex flex-col lg:flex-row gap-10">
+      <!-- Berita Detail -->
+      <section class="flex-1">
+        <h1 class="text-2xl md:text-3xl font-bold text-[var(--blue-dark)] mb-2">
+          {{ berita.title }}
+        </h1>
+        <div
+          class="text-sm text-[var(--text-gray)] flex items-center flex-wrap gap-4 mb-6"
+        >
+          <span class="flex items-center gap-2">
+            <i
+              class="fa-solid fa-calendar-days text-[var(--accent-yellow)] hover:text-yellow-500"
+            ></i>
+            {{ berita.date }}
+          </span>
+          <span class="flex items-center gap-2">
+            <i
+              class="fa-solid fa-tags text-[var(--accent-yellow)] hover:text-yellow-500"
+            ></i>
+            {{ berita.kategori }}
+          </span>
+          <span class="flex items-center gap-2">
+            <i
+              class="fa-solid fa-user text-[var(--accent-yellow)] hover:text-yellow-500"
+            ></i>
+            Oleh : Humas POLIWANGI
+          </span>
+        </div>
 
-      <div class="w-full mb-5">
-        <img :src="berita.image" class="w-full max-h-[400px] object-cover rounded-lg shadow" alt="Foto Berita" />
-      </div>
+        <!-- Gambar Berita -->
+        <div class="w-full mb-6">
+          <img
+            :src="berita.image"
+            class="w-full max-w-4xl mx-auto object-cover rounded-lg shadow"
+            alt="Foto Berita"
+          />
+        </div>
 
-      <div class="text-justify text-gray-700 leading-relaxed space-y-4" v-html="berita.content"></div>
-    </section>
+        <!-- Isi Konten -->
+        <div
+          class="text-justify text-[var(--text-gray)] leading-relaxed space-y-4 max-w-4xl mx-auto"
+          v-html="berita.content"
+        ></div>
+      </section>
+
+      <!-- Berita Terbaru -->
+      <aside class="w-full lg:w-[30%]">
+        <h2
+          class="text-lg font-bold border-l-4 border-[var(--accent-yellow)] pl-2 mb-4 text-[var(--blue-dark)]"
+        >
+          Berita Terbaru
+        </h2>
+        <ul class="space-y-5 text-[var(--blue-dark)]">
+          <li
+            v-for="item in beritaTerbaru"
+            :key="item.slug"
+            class="border-b border-[var(--blue-medium)] pb-3"
+          >
+            <router-link
+              :to="`/berita/${item.slug}`"
+              class="hover:underline hover:text-[var(--accent-yellow)] font-semibold"
+            >
+              {{ item.title }}
+            </router-link>
+            <p class="text-xs text-[var(--text-gray)] mt-1">{{ item.date }}</p>
+          </li>
+        </ul>
+      </aside>
+    </div>
   </div>
 
+  <!-- Jika Tidak Ada Berita -->
   <div v-else class="px-6 md:px-20 py-10">
     <p class="text-center text-red-500 font-semibold">Berita tidak ditemukan</p>
   </div>
@@ -32,9 +102,10 @@
 
 <script setup>
 import { useRoute } from "vue-router";
+import { ref, watch, computed } from "vue";
 
 const route = useRoute();
-const slug = route.params.slug;
+const slug = ref(route.params.slug);
 
 const beritalList = [
   {
@@ -189,7 +260,8 @@ const beritalList = [
   },
   {
     image: "/src/assets/img/berita_2.png",
-    title: "Workshop Kewirausahaan Mahasiswa Poliwangi untuk Mengembangkan Potensi Bisnis Mahasiswa",
+    title:
+      "Workshop Kewirausahaan Mahasiswa Poliwangi untuk Mengembangkan Potensi Bisnis Mahasiswa",
     date: "18 Juni 2025",
     slug: "workshop-kewirausahaan-mahasiswa-poliwangi-untuk-mengembangkan-potensi-bisnis-mahasiswa",
     kategori: "Akademik",
@@ -204,7 +276,8 @@ const beritalList = [
   },
   {
     image: "/src/assets/img/berita_3.png",
-    title: "Kunjungan Industri Mahasiswa Teknik Poliwangi ke PT XYZ untuk Mendalami Proses Produksi",
+    title:
+      "Kunjungan Industri Mahasiswa Teknik Poliwangi ke PT XYZ untuk Mendalami Proses Produksi",
     date: "15 Juni 2025",
     slug: "kunjungan-industri-mahasiswa-teknik-poliwangi-ke-pt-xyz-untuk-mendalami-proses-produksi",
     kategori: "Akademik",
@@ -219,7 +292,8 @@ const beritalList = [
   },
   {
     image: "/src/assets/img/berita_4.png",
-    title: "Sosialisasi Program Magang Industri Bagi Mahasiswa Poliwangi Sebelum Lulus",
+    title:
+      "Sosialisasi Program Magang Industri Bagi Mahasiswa Poliwangi Sebelum Lulus",
     date: "10 Juni 2025",
     slug: "sosialisasi-program-magang-industri-bagi-mahasiswa-poliwangi-sebelum-lulus",
     kategori: "Akademik",
@@ -234,5 +308,20 @@ const beritalList = [
   },
 ];
 
-const berita = beritalList.find((item) => item.slug === slug);
+const berita = ref(beritalList.find((item) => item.slug === slug.value));
+
+const beritaTerbaru = computed(() =>
+  beritalList
+    .filter((item) => item.slug !== slug.value)
+    .sort((a, b) => new Date(b.date) - new Date(a.date))
+    .slice(0, 5)
+);
+
+watch(
+  () => route.params.slug,
+  (newSlug) => {
+    slug.value = newSlug;
+    berita.value = beritalList.find((item) => item.slug === newSlug);
+  }
+);
 </script>
