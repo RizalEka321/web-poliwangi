@@ -185,8 +185,8 @@
             <h3
               class="text-xl font-bold text-[var(--text-black)] mb-2 text-justify hover:text-yellow-400"
             >
-              Sosialisasi Program Magang Industri Bagi Mahasiswa Poliwangi
-              Sebelum Lulus ke Dunia Kerja
+              Tim Poliwangi Raih Award of Excellence (2nd Winner) pada ajang
+              internasional.
             </h3>
             <div class="flex items-center text-sm text-[var(--text-black)]">
               <p><i class="fa-solid fa-calendar-days me-2"></i>21 Maret 2002</p>
@@ -194,9 +194,8 @@
               <p><i class="fa-solid fa-tags me-2"></i>Berita</p>
             </div>
             <p class="text-[var(--text-black)] mb-4 text-justify">
-              Ringkasan singkat dari berita utama yang sedang tampil di sini.
-              Konten berita utama biasanya berisi highlight terkini dari
-              Poliwangi.
+              Februari 2025, Poliwangi mengawali awal tahun dengan prestasi
+              internasional yaitu sebagai “The 2nd Winner dengan...
             </p>
           </div>
         </router-link>
