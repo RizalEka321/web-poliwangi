@@ -91,112 +91,65 @@
 
 <script setup>
 import { useRoute } from "vue-router";
-import { ref, watch, computed } from "vue";
+import { ref, watch, computed, onMounted } from "vue";
+import axios from "axios";
 
 const route = useRoute();
 const slug = ref(route.params.slug);
 
-const registrationData = [
-  {
-    image: "/src/assets/img/utbk_snbt.png",
-    title: "Pilihan Program Studi Politeknik Negeri Banyuwangi",
-    date: "15 Januari 2025",
-    slug: "pilihan-program-studi-politeknik-negeri-banyuwangi",
-    content: `
-      <div class="text-justify text-gray-700 leading-relaxed space-y-4">
-        <p>
-          Politeknik Negeri Banyuwangi membuka pendaftaran Program Studi untuk Jalur UTBK-SNBT 2025. Program studi yang tersedia telah disesuaikan dengan kebutuhan industri dan perkembangan teknologi terkini.
-        </p>
-        <p>
-          Berikut beberapa program studi unggulan yang dapat dipilih oleh calon mahasiswa:
-        </p>
-        <ul class="list-disc pl-5 space-y-2">
-          <li>Teknik Informatika</li>
-          <li>Teknik Mesin</li>
-          <li>Teknik Sipil</li>
-          <li>Manajemen Bisnis Pariwisata</li>
-          <li>Teknologi Pengolahan Hasil Ternak</li>
-          <li>Bahasa Inggris untuk Komunikasi Bisnis dan Profesional</li>
-        </ul>
-        <p>
-          Seluruh program studi dilengkapi dengan fasilitas laboratorium, dosen profesional, serta peluang magang di industri mitra baik dalam maupun luar negeri.
-        </p>
-      </div>
-    `,
-  },
-  {
-    image: "/src/assets/img/kipk.png",
-    title: "PENGUMUMAN HASIL SELEKSI MAHASISWA BARU",
-    date: "9 Juli 2024",
-    slug: "pengumuman-hasil-seleksi-mahasiswa-baru",
-    content: `
-      <div class="text-justify text-gray-700 leading-relaxed space-y-4">
-        <p>
-          Berdasarkan hasil seleksi Tim Pengelola Beasiswa Kartu Indonesia Pintar Kuliah (KIPK), berikut diumumkan nama-nama calon mahasiswa baru yang dinyatakan lulus seleksi dan berhak menerima bantuan biaya pendidikan.
-        </p>
-        <p>
-          Kami ucapkan selamat kepada seluruh peserta yang lulus. Bagi peserta yang belum berhasil, tetap semangat dan terus berusaha di kesempatan berikutnya.
-        </p>
-        <p>
-          Informasi lengkap daftar nama penerima dan jadwal registrasi ulang dapat diakses melalui website resmi Poliwangi atau langsung ke bagian akademik kampus.
-        </p>
-      </div>
-    `,
-  },
-  {
-    image: "/src/assets/img/presentasesnbt.png",
-    title: "Pengumuman Jumlah Pendaftar SNBP 2025",
-    date: "10 Maret 2025",
-    slug: "pengumuman-jumlah-pendaftar-snbp-2025",
-    content: `
-      <div class="text-justify text-gray-700 leading-relaxed space-y-4">
-        <p>
-          Politeknik Negeri Banyuwangi mengucapkan terima kasih atas partisipasi siswa-siswi dari seluruh Indonesia yang telah mendaftar melalui jalur SNBP 2025.
-        </p>
-        <p>
-          Tercatat peningkatan jumlah pendaftar yang signifikan dibandingkan tahun sebelumnya. Hal ini menunjukkan kepercayaan masyarakat terhadap kualitas pendidikan yang diselenggarakan oleh Poliwangi.
-        </p>
-        <p>
-          Proses seleksi administrasi akan segera dilakukan, dan hasil kelulusan akan diumumkan sesuai jadwal resmi dari Kementerian Pendidikan.
-        </p>
-      </div>
-    `,
-  },
-  {
-    image: "/src/assets/img/utbk_snbt.png",
-    title: "Pengumuman PMDK",
-    date: "18 Maret 2025",
-    slug: "pengumuman-pmdk",
-    content: `
-      <div class="text-justify text-gray-700 leading-relaxed space-y-4">
-        <p>
-          Penerimaan Mahasiswa Baru melalui Jalur PMDK diperuntukkan bagi siswa berprestasi dari sekolah mitra yang telah bekerjasama dengan Poliwangi.
-        </p>
-        <p>
-          Proses seleksi didasarkan pada prestasi akademik, non-akademik, serta rekomendasi sekolah. Calon mahasiswa yang dinyatakan lulus PMDK mendapatkan kesempatan langsung untuk menjadi bagian dari keluarga besar Poliwangi tanpa mengikuti tes seleksi nasional.
-        </p>
-        <p>
-          Selamat bagi seluruh peserta yang berhasil lolos seleksi PMDK tahun ini!
-        </p>
-      </div>
-    `,
-  },
-];
+const registrationData = ref([]);
+const event = ref(null);
+const recentRegistration = ref([]);
 
-const event = ref(registrationData.find((e) => e.slug === slug.value));
+onMounted(async () => {
+  try {
+    const response = await axios.get(
+      "http://localhost/webcoba/wp-json/wp/v2/posts?categories=1&_embed"
+    );
+    const data = response.data.map((post) => {
+      let image = "/src/assets/img/default.jpg";
+      if (
+        post._embedded &&
+        post._embedded["wp:featuredmedia"] &&
+        post._embedded["wp:featuredmedia"][0] &&
+        post._embedded["wp:featuredmedia"][0].source_url
+      ) {
+        image = post._embedded["wp:featuredmedia"][0].source_url;
+      }
 
-const recentRegistration = computed(() => {
-  return registrationData
-    .filter((item) => item.slug !== slug.value)
-    .sort((a, b) => new Date(b.date) - new Date(a.date))
-    .slice(0, 4);
+      return {
+        title: post.title.rendered,
+        slug: post.slug,
+        date: new Date(post.date).toLocaleDateString("id-ID", {
+          day: "numeric",
+          month: "long",
+          year: "numeric",
+        }),
+        content: post.content.rendered,
+        image,
+      };
+    });
+
+    registrationData.value = data;
+    event.value = registrationData.value.find((e) => e.slug === slug.value);
+    recentRegistration.value = registrationData.value
+      .filter((item) => item.slug !== slug.value)
+      .sort((a, b) => new Date(b.date) - new Date(a.date))
+      .slice(0, 4);
+  } catch (err) {
+    console.error("Gagal mengambil data detail pendaftaran:", err);
+  }
 });
 
 watch(
   () => route.params.slug,
   (newSlug) => {
     slug.value = newSlug;
-    event.value = registrationData.find((e) => e.slug === newSlug);
+    event.value = registrationData.value.find((e) => e.slug === newSlug);
+    recentRegistration.value = registrationData.value
+      .filter((item) => item.slug !== newSlug)
+      .sort((a, b) => new Date(b.date) - new Date(a.date))
+      .slice(0, 4);
   }
 );
 </script>

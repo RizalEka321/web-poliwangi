@@ -24,3 +24,26 @@ body {
 .list-alpha {
   list-style-type: lower-alpha;
 }
+
+/* Sembunyikan scrollbar tapi tetap bisa di-scroll */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE dan Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari, Opera */
+}
+
+/* Auto scroll animation (opsional) */
+@keyframes autoScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.auto-scroll {
+  animation: autoScroll 20s linear infinite;
+}
