@@ -92,10 +92,15 @@
         INFORMASI PENDAFTARAN
       </h2>
     </div>
+
     <div ref="cardContainer" class="overflow-x-hidden py-3 px-4 md:px-20">
       <div
         class="flex space-x-8 transition-transform duration-500"
-        :style="{ transform: `translateX(-${currentPageIndex * pageWidth}px)` }"
+        :style="{
+          transform: `translateX(-${
+            currentPageIndex * itemsPerPage * (cardWidth + 32)
+          }px)`,
+        }"
       >
         <router-link
           :to="`/pendaftaran/${item.slug}`"
@@ -137,14 +142,20 @@
         </router-link>
       </div>
     </div>
-    <div class="flex justify-center items-center mt-10 space-x-2">
+
+    <!-- Pagination - tampilkan hanya jika ada lebih dari 1 halaman -->
+    <div
+      v-if="totalPages > 1"
+      class="flex justify-center items-center mt-10 space-x-2"
+    >
       <button
-        class="w-10 h-10 rounded-xl bg-[#E0E0E0] shadow font-bold hover:bg-[var(--accent-blue)] hover:text-white transition duration-300 ease-in-out"
+        class="w-10 h-10 rounded-xl bg-[#E0E0E0] shadow font-bold hover:bg-[var(--accent-blue)] hover:text-white transition duration-300 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed"
         @click="prevPage"
         :disabled="currentPageIndex === 0"
       >
         <i class="fa-solid fa-chevron-left"></i>
       </button>
+
       <button
         v-for="page in totalPages"
         :key="page"
@@ -158,8 +169,9 @@
       >
         {{ page }}
       </button>
+
       <button
-        class="w-10 h-10 rounded-xl bg-[#E0E0E0] shadow font-bold hover:bg-[var(--accent-blue)] hover:text-white transition duration-300 ease-in-out"
+        class="w-10 h-10 rounded-xl bg-[#E0E0E0] shadow font-bold hover:bg-[var(--accent-blue)] hover:text-white transition duration-300 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed"
         @click="nextPage"
         :disabled="currentPageIndex === totalPages - 1"
       >
@@ -467,20 +479,58 @@
   </section>
 </template>
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, onUnmounted, nextTick } from "vue";
 import axios from "axios";
 
 const registrationData = ref([]);
 const currentPageIndex = ref(0);
-const pageWidth = ref(0);
-const totalPages = ref(1); // ✅ Jangan lupa ini
+const itemsPerPage = ref(1); // items per page (akan dihitung berdasarkan lebar container)
+const totalPages = ref(1);
 const cardContainer = ref(null);
+const cardWidth = ref(320); // default card width (md:w-80 = 320px)
+
+// Function untuk menghitung jumlah items per page berdasarkan lebar container
+const calculateItemsPerPage = () => {
+  if (!cardContainer.value) return;
+
+  const containerWidth = cardContainer.value.offsetWidth;
+  const cardWidthWithGap = cardWidth.value + 32; // card width + gap (space-x-8 = 32px)
+
+  // Hitung berapa card yang bisa muat dalam satu halaman
+  const itemsCanFit = Math.floor(containerWidth / cardWidthWithGap);
+  itemsPerPage.value = Math.max(1, itemsCanFit); // minimal 1 item
+
+  // Hitung total pages berdasarkan items per page
+  totalPages.value = Math.ceil(
+    registrationData.value.length / itemsPerPage.value
+  );
+
+  console.log("Container width:", containerWidth);
+  console.log("Items per page:", itemsPerPage.value);
+  console.log("Total items:", registrationData.value.length);
+  console.log("Total pages:", totalPages.value);
+};
+
+// Function untuk update card width berdasarkan breakpoint
+const updateCardWidth = () => {
+  const screenWidth = window.innerWidth;
+  if (screenWidth >= 768) {
+    // md breakpoint
+    cardWidth.value = 320; // w-80 = 320px
+  } else if (screenWidth >= 640) {
+    // sm breakpoint
+    cardWidth.value = 288; // w-72 = 288px
+  } else {
+    cardWidth.value = 240; // w-60 = 240px
+  }
+};
 
 onMounted(async () => {
   try {
     const response = await axios.get(
       "http://localhost/webcoba/wp-json/wp/v2/posts?categories=1&_embed"
     );
+
     registrationData.value = response.data.map((post) => {
       let image = "/src/assets/img/default.jpg";
       if (
@@ -500,17 +550,40 @@ onMounted(async () => {
       };
     });
 
+    // Wait for DOM to be updated
+    await nextTick();
+
+    // Update card width based on screen size
+    updateCardWidth();
+
+    // Calculate pagination setelah data dimuat dan DOM ter-render
     setTimeout(() => {
-      if (cardContainer.value) {
-        pageWidth.value = cardContainer.value.offsetWidth;
-        totalPages.value = Math.ceil(
-          (registrationData.value.length * 270) / pageWidth.value
-        ); // asumsi card width 270px
-      }
-    }, 100);
+      calculateItemsPerPage();
+    }, 200);
   } catch (error) {
     console.error("Gagal mengambil data pendaftaran:", error);
   }
+});
+
+// Handle window resize
+const handleResize = () => {
+  updateCardWidth();
+  calculateItemsPerPage();
+
+  // Reset to first page if current page exceeds new total pages
+  if (currentPageIndex.value >= totalPages.value) {
+    currentPageIndex.value = 0;
+  }
+};
+
+// Add resize listener
+onMounted(() => {
+  window.addEventListener("resize", handleResize);
+});
+
+// Cleanup resize listener
+onUnmounted(() => {
+  window.removeEventListener("resize", handleResize);
 });
 
 const prevPage = () => {
@@ -526,7 +599,9 @@ const nextPage = () => {
 };
 
 const goToPage = (page) => {
-  currentPageIndex.value = page;
+  if (page >= 0 && page < totalPages.value) {
+    currentPageIndex.value = page;
+  }
 };
 
 // Berita
@@ -720,5 +795,3 @@ const faqs = [
   },
 ];
 </script>
-
-// Qu6&&deLLRgRREgZdt
